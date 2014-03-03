@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F044E0118B2DE040032E69F /* econGenUtilFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F044E0018B2DE040032E69F /* econGenUtilFunc.m */; };
+		6FA59A0A18A95E8A00F0EE80 /* econcountry.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA59A0918A95E8A00F0EE80 /* econcountry.m */; };
+		6FA59A0D18AA9C5100F0EE80 /* econUtilExchangeRateFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA59A0C18AA9C5100F0EE80 /* econUtilExchangeRateFunc.m */; };
+		6FA59A1018AAD6B000F0EE80 /* econUtilMonetaryTheoryFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA59A0F18AAD6B000F0EE80 /* econUtilMonetaryTheoryFunc.m */; };
+		6FA59A1318AD95EF00F0EE80 /* econMacroModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA59A1218AD95EF00F0EE80 /* econMacroModel.m */; };
 		6FC2FB2818A4388D00DE5C6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FC2FB2718A4388D00DE5C6D /* Foundation.framework */; };
 		6FC2FB2A18A4388D00DE5C6D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FC2FB2918A4388D00DE5C6D /* CoreGraphics.framework */; };
 		6FC2FB2C18A4388D00DE5C6D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FC2FB2B18A4388D00DE5C6D /* UIKit.framework */; };
@@ -35,6 +40,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6F044DFF18B2DE040032E69F /* econGenUtilFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = econGenUtilFunc.h; sourceTree = "<group>"; };
+		6F044E0018B2DE040032E69F /* econGenUtilFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = econGenUtilFunc.m; sourceTree = "<group>"; };
+		6FA59A0818A95E8A00F0EE80 /* econcountry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = econcountry.h; sourceTree = "<group>"; };
+		6FA59A0918A95E8A00F0EE80 /* econcountry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = econcountry.m; sourceTree = "<group>"; };
+		6FA59A0B18AA9C5100F0EE80 /* econUtilExchangeRateFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = econUtilExchangeRateFunc.h; sourceTree = "<group>"; };
+		6FA59A0C18AA9C5100F0EE80 /* econUtilExchangeRateFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = econUtilExchangeRateFunc.m; sourceTree = "<group>"; };
+		6FA59A0E18AAD6B000F0EE80 /* econUtilMonetaryTheoryFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = econUtilMonetaryTheoryFunc.h; sourceTree = "<group>"; };
+		6FA59A0F18AAD6B000F0EE80 /* econUtilMonetaryTheoryFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = econUtilMonetaryTheoryFunc.m; sourceTree = "<group>"; };
+		6FA59A1118AD95EF00F0EE80 /* econMacroModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = econMacroModel.h; sourceTree = "<group>"; };
+		6FA59A1218AD95EF00F0EE80 /* econMacroModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = econMacroModel.m; sourceTree = "<group>"; };
 		6FC2FB2418A4388D00DE5C6D /* Kai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FC2FB2718A4388D00DE5C6D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6FC2FB2918A4388D00DE5C6D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -84,6 +99,16 @@
 		6FC2FB1B18A4388D00DE5C6D = {
 			isa = PBXGroup;
 			children = (
+				6FA59A0818A95E8A00F0EE80 /* econcountry.h */,
+				6FA59A0918A95E8A00F0EE80 /* econcountry.m */,
+				6FA59A1118AD95EF00F0EE80 /* econMacroModel.h */,
+				6FA59A1218AD95EF00F0EE80 /* econMacroModel.m */,
+				6FA59A0E18AAD6B000F0EE80 /* econUtilMonetaryTheoryFunc.h */,
+				6FA59A0F18AAD6B000F0EE80 /* econUtilMonetaryTheoryFunc.m */,
+				6F044DFF18B2DE040032E69F /* econGenUtilFunc.h */,
+				6F044E0018B2DE040032E69F /* econGenUtilFunc.m */,
+				6FA59A0B18AA9C5100F0EE80 /* econUtilExchangeRateFunc.h */,
+				6FA59A0C18AA9C5100F0EE80 /* econUtilExchangeRateFunc.m */,
 				6FC2FB2D18A4388D00DE5C6D /* Kai */,
 				6FC2FB4F18A4388D00DE5C6D /* KaiTests */,
 				6FC2FB2618A4388D00DE5C6D /* Frameworks */,
@@ -256,6 +281,11 @@
 			files = (
 				6FC2FB3418A4388D00DE5C6D /* main.m in Sources */,
 				6FC2FB3818A4388D00DE5C6D /* econAppDelegate.m in Sources */,
+				6FA59A1018AAD6B000F0EE80 /* econUtilMonetaryTheoryFunc.m in Sources */,
+				6FA59A0A18A95E8A00F0EE80 /* econcountry.m in Sources */,
+				6FA59A1318AD95EF00F0EE80 /* econMacroModel.m in Sources */,
+				6F044E0118B2DE040032E69F /* econGenUtilFunc.m in Sources */,
+				6FA59A0D18AA9C5100F0EE80 /* econUtilExchangeRateFunc.m in Sources */,
 				6FC2FB4118A4388D00DE5C6D /* econViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,6 +505,7 @@
 				6FC2FB5B18A4388D00DE5C6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6FC2FB5C18A4388D00DE5C6D /* Build configuration list for PBXNativeTarget "KaiTests" */ = {
 			isa = XCConfigurationList;
@@ -483,6 +514,7 @@
 				6FC2FB5E18A4388D00DE5C6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

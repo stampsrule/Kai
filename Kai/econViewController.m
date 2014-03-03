@@ -7,23 +7,40 @@
 //
 
 #import "econViewController.h"
-
+#import "econcountry.h"
+//#import "econCountryViewController.h"
 @interface econViewController ()
+
+@property (nonatomic, strong) econcountry *homeCountry;
+@property (nonatomic, strong) econcountry *foreighnCountry;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *popOverFinished;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *chooseCountry;
 
 @end
 
-@implementation econViewController
 
-- (void)viewDidLoad
+@implementation econViewController
+- (econcountry *) homeCountry
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    if (!_homeCountry) {
+        _homeCountry = [[econcountry alloc] initWithName:@"home"];
+    }
+    return _homeCountry;
 }
 
-- (void)didReceiveMemoryWarning
+- (econcountry *) foreighnCountry
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    if (!_foreighnCountry) {
+        _foreighnCountry = [[econcountry alloc] initWithName:@"foreighn"];
+    }
+    return _foreighnCountry;
+}
+
+
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+	return YES;
 }
 
 @end

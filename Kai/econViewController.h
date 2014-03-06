@@ -6,10 +6,20 @@
 //  Copyright (c) 2014 Daniel Bell. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
+#import "econCountryViewController.h"
 
-@interface econViewController : UIViewController
-
+@interface econViewController : UIViewController <econCountryViewControllerDelegate, UIPopoverControllerDelegate>
+@property (strong, nonatomic) UIStoryboardPopoverSegue *currentPopoverSegue;
+@property (strong, nonatomic) econCountryViewController *pvc;
 
 
 @end
+
+
+
+
+
+
+
+

@@ -25,7 +25,7 @@
 
 - (void) setName:(NSString *)name
 {
-    if ([_name isEqualToString:NULL] || [_name isEqualToString:@"foreighn"] || [_name isEqualToString:@"home"]){
+    if ([_name length]==0 || [_name isEqualToString:@"foreighn"] || [_name isEqualToString:@"home"]){
         _name=name;
     }
     //if country has no name, or default unassigned name allows for a name to be assigned

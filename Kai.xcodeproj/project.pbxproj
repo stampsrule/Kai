@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6F044E0118B2DE040032E69F /* econGenUtilFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F044E0018B2DE040032E69F /* econGenUtilFunc.m */; };
+		6F960D4418C545C5008203D0 /* econCountryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F960D4318C545C5008203D0 /* econCountryViewController.m */; };
 		6FA59A0A18A95E8A00F0EE80 /* econcountry.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA59A0918A95E8A00F0EE80 /* econcountry.m */; };
 		6FA59A0D18AA9C5100F0EE80 /* econUtilExchangeRateFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA59A0C18AA9C5100F0EE80 /* econUtilExchangeRateFunc.m */; };
 		6FA59A1018AAD6B000F0EE80 /* econUtilMonetaryTheoryFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA59A0F18AAD6B000F0EE80 /* econUtilMonetaryTheoryFunc.m */; };
@@ -42,6 +43,8 @@
 /* Begin PBXFileReference section */
 		6F044DFF18B2DE040032E69F /* econGenUtilFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = econGenUtilFunc.h; sourceTree = "<group>"; };
 		6F044E0018B2DE040032E69F /* econGenUtilFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = econGenUtilFunc.m; sourceTree = "<group>"; };
+		6F960D4218C545C5008203D0 /* econCountryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = econCountryViewController.h; sourceTree = "<group>"; };
+		6F960D4318C545C5008203D0 /* econCountryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = econCountryViewController.m; sourceTree = "<group>"; };
 		6FA59A0818A95E8A00F0EE80 /* econcountry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = econcountry.h; sourceTree = "<group>"; };
 		6FA59A0918A95E8A00F0EE80 /* econcountry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = econcountry.m; sourceTree = "<group>"; };
 		6FA59A0B18AA9C5100F0EE80 /* econUtilExchangeRateFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = econUtilExchangeRateFunc.h; sourceTree = "<group>"; };
@@ -145,6 +148,8 @@
 				6FC2FB3C18A4388D00DE5C6D /* Main_iPad.storyboard */,
 				6FC2FB3F18A4388D00DE5C6D /* econViewController.h */,
 				6FC2FB4018A4388D00DE5C6D /* econViewController.m */,
+				6F960D4218C545C5008203D0 /* econCountryViewController.h */,
+				6F960D4318C545C5008203D0 /* econCountryViewController.m */,
 				6FC2FB4218A4388D00DE5C6D /* Images.xcassets */,
 				6FC2FB2E18A4388D00DE5C6D /* Supporting Files */,
 			);
@@ -284,6 +289,7 @@
 				6FA59A1018AAD6B000F0EE80 /* econUtilMonetaryTheoryFunc.m in Sources */,
 				6FA59A0A18A95E8A00F0EE80 /* econcountry.m in Sources */,
 				6FA59A1318AD95EF00F0EE80 /* econMacroModel.m in Sources */,
+				6F960D4418C545C5008203D0 /* econCountryViewController.m in Sources */,
 				6F044E0118B2DE040032E69F /* econGenUtilFunc.m in Sources */,
 				6FA59A0D18AA9C5100F0EE80 /* econUtilExchangeRateFunc.m in Sources */,
 				6FC2FB4118A4388D00DE5C6D /* econViewController.m in Sources */,

@@ -9,6 +9,8 @@
 #import "econCountryViewController.h"
 
 @interface econCountryViewController ()
+@property (weak, nonatomic) NSString* segueName;
+
 
 @end
 
@@ -18,8 +20,8 @@
 @synthesize moneySupply;
 @synthesize Income;
 @synthesize strCountryName;
-@synthesize strPassedMoneySupplyValue;
 @synthesize strPassedIncomeValue;
+@synthesize strPassedMoneySupplyValue;
 
 @synthesize delegate;
 
@@ -58,18 +60,32 @@
         [delegate dismissPopCountry: countryName.text
                         moneySupply: [NSNumber numberWithFloat:[moneySupply.text floatValue]]
                              income: [NSNumber numberWithFloat: [Income.text floatValue]]];
+        
     }
     
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    if ([segue.identifier isEqualToString:@"Show list of countries"]) {
+        if ([segue.destinationViewController isKindOfClass:[econCountryTableViewController class]]) {
+            econCountryTableViewController *ecvc = (econCountryTableViewController *)segue.destinationViewController;
+            ecvc.delegate= [NSArray arrayWithObjects:delegate, nil];
+        }
+    }
+
 }
 
 
 - (void)viewWillAppear: (BOOL)animated {
     [countryName setText:strCountryName];
-    [moneySupply setText:[strPassedMoneySupplyValue stringValue]];
-    [Income setText:[strPassedIncomeValue stringValue]];
+    [moneySupply setText:strPassedMoneySupplyValue];
+    [Income setText:strPassedIncomeValue];
 }
 
 
+    
 - (void)viewDidLoad
 {
     [super viewDidLoad];

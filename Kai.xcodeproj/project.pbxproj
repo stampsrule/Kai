@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		6F044E0118B2DE040032E69F /* econGenUtilFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F044E0018B2DE040032E69F /* econGenUtilFunc.m */; };
+		6F1926C818CFC320009DCA41 /* econCountryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1926C718CFC320009DCA41 /* econCountryTableViewCell.m */; };
+		6F3002BC18D00F9900C88F5A /* econCountryGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3002BB18D00F9900C88F5A /* econCountryGraphViewController.m */; };
+		6F6D66EE18D8BE570007DE4D /* ECPercentDrivenInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D66E218D8BE570007DE4D /* ECPercentDrivenInteractiveTransition.m */; };
+		6F6D66EF18D8BE570007DE4D /* ECSlidingAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D66E418D8BE570007DE4D /* ECSlidingAnimationController.m */; };
+		6F6D66F018D8BE570007DE4D /* ECSlidingInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D66E718D8BE570007DE4D /* ECSlidingInteractiveTransition.m */; };
+		6F6D66F118D8BE570007DE4D /* ECSlidingSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D66E918D8BE570007DE4D /* ECSlidingSegue.m */; };
+		6F6D66F218D8BE570007DE4D /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D66EB18D8BE570007DE4D /* ECSlidingViewController.m */; };
+		6F6D66F318D8BE570007DE4D /* UIViewController+ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D66ED18D8BE570007DE4D /* UIViewController+ECSlidingViewController.m */; };
+		6F6D66F518D8C08C0007DE4D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6D66F418D8C08C0007DE4D /* QuartzCore.framework */; };
 		6F960D4418C545C5008203D0 /* econCountryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F960D4318C545C5008203D0 /* econCountryViewController.m */; };
 		6FA59A0A18A95E8A00F0EE80 /* econcountry.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA59A0918A95E8A00F0EE80 /* econcountry.m */; };
 		6FA59A0D18AA9C5100F0EE80 /* econUtilExchangeRateFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA59A0C18AA9C5100F0EE80 /* econUtilExchangeRateFunc.m */; };
@@ -28,6 +37,7 @@
 		6FC2FB4C18A4388D00DE5C6D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FC2FB2B18A4388D00DE5C6D /* UIKit.framework */; };
 		6FC2FB5418A4388D00DE5C6D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6FC2FB5218A4388D00DE5C6D /* InfoPlist.strings */; };
 		6FC2FB5618A4388D00DE5C6D /* KaiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FC2FB5518A4388D00DE5C6D /* KaiTests.m */; };
+		6FD6FCA118CE56730034B773 /* econCountryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD6FCA018CE56730034B773 /* econCountryTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +53,24 @@
 /* Begin PBXFileReference section */
 		6F044DFF18B2DE040032E69F /* econGenUtilFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = econGenUtilFunc.h; sourceTree = "<group>"; };
 		6F044E0018B2DE040032E69F /* econGenUtilFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = econGenUtilFunc.m; sourceTree = "<group>"; };
+		6F1926C618CFC320009DCA41 /* econCountryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = econCountryTableViewCell.h; sourceTree = "<group>"; };
+		6F1926C718CFC320009DCA41 /* econCountryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = econCountryTableViewCell.m; sourceTree = "<group>"; };
+		6F3002BA18D00F9900C88F5A /* econCountryGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = econCountryGraphViewController.h; sourceTree = "<group>"; };
+		6F3002BB18D00F9900C88F5A /* econCountryGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = econCountryGraphViewController.m; sourceTree = "<group>"; };
+		6F6D66E118D8BE570007DE4D /* ECPercentDrivenInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPercentDrivenInteractiveTransition.h; sourceTree = "<group>"; };
+		6F6D66E218D8BE570007DE4D /* ECPercentDrivenInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPercentDrivenInteractiveTransition.m; sourceTree = "<group>"; };
+		6F6D66E318D8BE570007DE4D /* ECSlidingAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingAnimationController.h; sourceTree = "<group>"; };
+		6F6D66E418D8BE570007DE4D /* ECSlidingAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingAnimationController.m; sourceTree = "<group>"; };
+		6F6D66E518D8BE570007DE4D /* ECSlidingConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingConstants.h; sourceTree = "<group>"; };
+		6F6D66E618D8BE570007DE4D /* ECSlidingInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingInteractiveTransition.h; sourceTree = "<group>"; };
+		6F6D66E718D8BE570007DE4D /* ECSlidingInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingInteractiveTransition.m; sourceTree = "<group>"; };
+		6F6D66E818D8BE570007DE4D /* ECSlidingSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingSegue.h; sourceTree = "<group>"; };
+		6F6D66E918D8BE570007DE4D /* ECSlidingSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingSegue.m; sourceTree = "<group>"; };
+		6F6D66EA18D8BE570007DE4D /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingViewController.h; sourceTree = "<group>"; };
+		6F6D66EB18D8BE570007DE4D /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingViewController.m; sourceTree = "<group>"; };
+		6F6D66EC18D8BE570007DE4D /* UIViewController+ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ECSlidingViewController.h"; sourceTree = "<group>"; };
+		6F6D66ED18D8BE570007DE4D /* UIViewController+ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ECSlidingViewController.m"; sourceTree = "<group>"; };
+		6F6D66F418D8C08C0007DE4D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6F960D4218C545C5008203D0 /* econCountryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = econCountryViewController.h; sourceTree = "<group>"; };
 		6F960D4318C545C5008203D0 /* econCountryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = econCountryViewController.m; sourceTree = "<group>"; };
 		6FA59A0818A95E8A00F0EE80 /* econcountry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = econcountry.h; sourceTree = "<group>"; };
@@ -73,6 +101,8 @@
 		6FC2FB5118A4388D00DE5C6D /* KaiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KaiTests-Info.plist"; sourceTree = "<group>"; };
 		6FC2FB5318A4388D00DE5C6D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6FC2FB5518A4388D00DE5C6D /* KaiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KaiTests.m; sourceTree = "<group>"; };
+		6FD6FC9F18CE56730034B773 /* econCountryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = econCountryTableViewController.h; sourceTree = "<group>"; };
+		6FD6FCA018CE56730034B773 /* econCountryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = econCountryTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F6D66F518D8C08C0007DE4D /* QuartzCore.framework in Frameworks */,
 				6FC2FB2A18A4388D00DE5C6D /* CoreGraphics.framework in Frameworks */,
 				6FC2FB2C18A4388D00DE5C6D /* UIKit.framework in Frameworks */,
 				6FC2FB2818A4388D00DE5C6D /* Foundation.framework in Frameworks */,
@@ -99,9 +130,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F6D66E018D8BE570007DE4D /* ECSlidingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6F6D66E118D8BE570007DE4D /* ECPercentDrivenInteractiveTransition.h */,
+				6F6D66E218D8BE570007DE4D /* ECPercentDrivenInteractiveTransition.m */,
+				6F6D66E318D8BE570007DE4D /* ECSlidingAnimationController.h */,
+				6F6D66E418D8BE570007DE4D /* ECSlidingAnimationController.m */,
+				6F6D66E518D8BE570007DE4D /* ECSlidingConstants.h */,
+				6F6D66E618D8BE570007DE4D /* ECSlidingInteractiveTransition.h */,
+				6F6D66E718D8BE570007DE4D /* ECSlidingInteractiveTransition.m */,
+				6F6D66E818D8BE570007DE4D /* ECSlidingSegue.h */,
+				6F6D66E918D8BE570007DE4D /* ECSlidingSegue.m */,
+				6F6D66EA18D8BE570007DE4D /* ECSlidingViewController.h */,
+				6F6D66EB18D8BE570007DE4D /* ECSlidingViewController.m */,
+				6F6D66EC18D8BE570007DE4D /* UIViewController+ECSlidingViewController.h */,
+				6F6D66ED18D8BE570007DE4D /* UIViewController+ECSlidingViewController.m */,
+			);
+			path = ECSlidingViewController;
+			sourceTree = "<group>";
+		};
 		6FC2FB1B18A4388D00DE5C6D = {
 			isa = PBXGroup;
 			children = (
+				6F6D66E018D8BE570007DE4D /* ECSlidingViewController */,
 				6FA59A0818A95E8A00F0EE80 /* econcountry.h */,
 				6FA59A0918A95E8A00F0EE80 /* econcountry.m */,
 				6FA59A1118AD95EF00F0EE80 /* econMacroModel.h */,
@@ -131,6 +183,7 @@
 		6FC2FB2618A4388D00DE5C6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6F6D66F418D8C08C0007DE4D /* QuartzCore.framework */,
 				6FC2FB2718A4388D00DE5C6D /* Foundation.framework */,
 				6FC2FB2918A4388D00DE5C6D /* CoreGraphics.framework */,
 				6FC2FB2B18A4388D00DE5C6D /* UIKit.framework */,
@@ -146,10 +199,16 @@
 				6FC2FB3718A4388D00DE5C6D /* econAppDelegate.m */,
 				6FC2FB3918A4388D00DE5C6D /* Main_iPhone.storyboard */,
 				6FC2FB3C18A4388D00DE5C6D /* Main_iPad.storyboard */,
+				6F3002BA18D00F9900C88F5A /* econCountryGraphViewController.h */,
+				6F3002BB18D00F9900C88F5A /* econCountryGraphViewController.m */,
 				6FC2FB3F18A4388D00DE5C6D /* econViewController.h */,
 				6FC2FB4018A4388D00DE5C6D /* econViewController.m */,
+				6F1926C618CFC320009DCA41 /* econCountryTableViewCell.h */,
+				6F1926C718CFC320009DCA41 /* econCountryTableViewCell.m */,
 				6F960D4218C545C5008203D0 /* econCountryViewController.h */,
 				6F960D4318C545C5008203D0 /* econCountryViewController.m */,
+				6FD6FC9F18CE56730034B773 /* econCountryTableViewController.h */,
+				6FD6FCA018CE56730034B773 /* econCountryTableViewController.m */,
 				6FC2FB4218A4388D00DE5C6D /* Images.xcassets */,
 				6FC2FB2E18A4388D00DE5C6D /* Supporting Files */,
 			);
@@ -230,7 +289,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = econ;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Daniel Bell";
 				TargetAttributes = {
 					6FC2FB4718A4388D00DE5C6D = {
@@ -284,14 +343,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FD6FCA118CE56730034B773 /* econCountryTableViewController.m in Sources */,
 				6FC2FB3418A4388D00DE5C6D /* main.m in Sources */,
 				6FC2FB3818A4388D00DE5C6D /* econAppDelegate.m in Sources */,
 				6FA59A1018AAD6B000F0EE80 /* econUtilMonetaryTheoryFunc.m in Sources */,
+				6F6D66EE18D8BE570007DE4D /* ECPercentDrivenInteractiveTransition.m in Sources */,
+				6F6D66F018D8BE570007DE4D /* ECSlidingInteractiveTransition.m in Sources */,
+				6F6D66F118D8BE570007DE4D /* ECSlidingSegue.m in Sources */,
 				6FA59A0A18A95E8A00F0EE80 /* econcountry.m in Sources */,
+				6F6D66F218D8BE570007DE4D /* ECSlidingViewController.m in Sources */,
 				6FA59A1318AD95EF00F0EE80 /* econMacroModel.m in Sources */,
+				6F6D66F318D8BE570007DE4D /* UIViewController+ECSlidingViewController.m in Sources */,
+				6F3002BC18D00F9900C88F5A /* econCountryGraphViewController.m in Sources */,
 				6F960D4418C545C5008203D0 /* econCountryViewController.m in Sources */,
 				6F044E0118B2DE040032E69F /* econGenUtilFunc.m in Sources */,
 				6FA59A0D18AA9C5100F0EE80 /* econUtilExchangeRateFunc.m in Sources */,
+				6F6D66EF18D8BE570007DE4D /* ECSlidingAnimationController.m in Sources */,
+				6F1926C818CFC320009DCA41 /* econCountryTableViewCell.m in Sources */,
 				6FC2FB4118A4388D00DE5C6D /* econViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,7 +422,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -394,7 +461,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -453,7 +519,6 @@
 		6FC2FB5D18A4388D00DE5C6D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Kai.app/Kai";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -476,7 +541,6 @@
 		6FC2FB5E18A4388D00DE5C6D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Kai.app/Kai";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

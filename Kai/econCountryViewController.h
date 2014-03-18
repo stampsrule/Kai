@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "econCountryTableViewController.h"
 
 @protocol econCountryViewControllerDelegate;
 
@@ -17,11 +18,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *Income;
 @property (weak) id <econCountryViewControllerDelegate> delegate;
 @property (strong, nonatomic) NSString *strCountryName;
-@property (strong, nonatomic) NSNumber *strPassedMoneySupplyValue;
-@property (strong, nonatomic) NSNumber *strPassedIncomeValue;
+@property (strong, nonatomic) NSString *strPassedMoneySupplyValue;
+@property (strong, nonatomic) NSString *strPassedIncomeValue;
+
 
 - (IBAction)SaveCountryData:(UIButton *)sender;
-
 @end
 
 

@@ -7,10 +7,16 @@
 //
 
 #import "econCountryViewController.h"
+#import "econAppDelegate.h"
+#import "CountryName.h"
+#import "NominalGDPData.h"
+#import "M1Data.h"
+#import "RealGDPData.h"
+#import "M2Data.h"
 
 @interface econCountryViewController ()
 @property (weak, nonatomic) NSString* segueName;
-
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 @end
 
@@ -65,6 +71,48 @@
     
 }
 
+- (IBAction)addCountryEntity:(id)sender
+{
+    // Add Entry to PhoneBook Data base and reset all fields
+    
+    //  1
+    CountryName * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"CountryName"
+                                                      inManagedObjectContext:self.managedObjectContext];
+    //  2
+    newEntry.name=@"USA";
+    newEntry.lastChange=[NSDate date];
+    
+    
+    
+    //  6
+    NSString *dateStr = @"01-01-";
+    NSNumber *yearValue = [NSNumber numberWithInt:2012];
+    NSDateFormatter *editDate =   [[NSDateFormatter alloc] init];
+    [editDate setDateFormat:@"MM-dd-yyy"];
+    dateStr=[dateStr stringByAppendingString:[yearValue stringValue]];
+
+    M2Data * m2Object= [NSEntityDescription insertNewObjectForEntityForName:@"M2Data"
+                                                     inManagedObjectContext:self.managedObjectContext];
+    
+    RealGDPData * realGDPObject = [NSEntityDescription insertNewObjectForEntityForName:@"RealGDPData"
+                                                                inManagedObjectContext:self.managedObjectContext];
+    
+    m2Object.current=[NSNumber numberWithLong:14103420441094];
+    realGDPObject.current=[NSNumber numberWithLong:13595644353592];
+    m2Object.currentYear=[editDate dateFromString:dateStr];
+    realGDPObject.currentYear=[editDate dateFromString:dateStr];
+    
+    newEntry.countryM2 = m2Object;
+    newEntry.countryRealGDP = realGDPObject;
+    
+    //  3
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+    [self.view endEditing:YES];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     
@@ -89,7 +137,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    //1
+    econAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    //2
+    self.managedObjectContext = appDelegate.managedObjectContext;
+    [self addCountryEntity:self];
 }
 
 - (void)viewDidUnload
@@ -98,7 +150,6 @@
     [self setMoneySupply:nil];
     [self setIncome:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 @end

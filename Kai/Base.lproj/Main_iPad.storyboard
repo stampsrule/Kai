@@ -435,19 +435,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="352" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search for Country" id="JQL-3Z-6sE">
-                            <rect key="frame" x="0.0" y="0.0" width="352" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                            <connections>
-                                <outlet property="delegate" destination="x5A-rh-Bit" id="eA0-RR-RpQ"/>
-                            </connections>
-                        </searchBar>
                         <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="JIH-Ee-1jx">
-                            <rect key="frame" x="0.0" y="400" width="352" height="44"/>
+                            <rect key="frame" x="0.0" y="66" width="352" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <items>
-                                <barButtonItem title="Save" id="R0u-Ko-Upf">
+                                <barButtonItem systemItem="save" id="R0u-Ko-Upf">
                                     <connections>
                                         <segue destination="BLk-gT-74P" kind="modal" identifier="Save Selected Country" modalPresentationStyle="currentContext" id="4bc-8M-k1u"/>
                                     </connections>
@@ -456,7 +448,7 @@
                         </toolbar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Country table cell" id="Syf-rG-Cuf" customClass="econCountryTableViewCell">
-                                <rect key="frame" x="0.0" y="66" width="352" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="352" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Syf-rG-Cuf" id="8sb-Lj-VoL">
                                     <rect key="frame" x="0.0" y="0.0" width="352" height="43"/>
@@ -493,20 +485,8 @@
                     <navigationItem key="navigationItem" title="Root View Controller" id="MQW-9b-M7Q"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="352" height="400"/>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="UiM-WE-e7E" id="Yd9-Wu-7aC"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UlE-7N-62P" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="UiM-WE-e7E">
-                    <connections>
-                        <outlet property="delegate" destination="x5A-rh-Bit" id="Hvc-iW-gAq"/>
-                        <outlet property="searchBar" destination="JQL-3Z-6sE" id="A68-4Q-DVx"/>
-                        <outlet property="searchContentsController" destination="x5A-rh-Bit" id="tCS-qJ-MSm"/>
-                        <outlet property="searchResultsDataSource" destination="x5A-rh-Bit" id="3nL-gP-ozp"/>
-                        <outlet property="searchResultsDelegate" destination="x5A-rh-Bit" id="90O-BP-cDU"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="2145" y="525"/>
         </scene>

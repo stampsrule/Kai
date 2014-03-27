@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="CountryName" representedClassName="CountryName" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="iso2code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastChange" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="countryM1" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="M1Data" inverseName="countryForM1" inverseEntity="M1Data" syncable="YES"/>
+        <relationship name="countryM2" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="M2Data" inverseName="countryForM2" inverseEntity="M2Data" syncable="YES"/>
+        <relationship name="countryNominalGDP" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NominalGDPData" inverseName="countryForNominalGDP" inverseEntity="NominalGDPData" syncable="YES"/>
+        <relationship name="countryRealGDP" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RealGDPData" inverseName="countryForRealGDP" inverseEntity="RealGDPData" syncable="YES"/>
+    </entity>
+    <entity name="M1Data" representedClassName="M1Data" syncable="YES">
+        <attribute name="current" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="currentYear" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="previous" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="previousYear" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="countryForM1" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CountryName" inverseName="countryM1" inverseEntity="CountryName" syncable="YES"/>
+    </entity>
+    <entity name="M2Data" representedClassName="M2Data" syncable="YES">
+        <attribute name="current" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="currentYear" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="previous" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="previousYear" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="countryForM2" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CountryName" inverseName="countryM2" inverseEntity="CountryName" syncable="YES"/>
+    </entity>
+    <entity name="NominalGDPData" representedClassName="NominalGDPData" syncable="YES">
+        <attribute name="current" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="currentYear" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="previous" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="previousYear" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="countryForNominalGDP" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CountryName" inverseName="countryNominalGDP" inverseEntity="CountryName" syncable="YES"/>
+    </entity>
+    <entity name="RealGDPData" representedClassName="RealGDPData" syncable="YES">
+        <attribute name="current" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="currentYear" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="previous" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="previousYear" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="countryForRealGDP" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CountryName" inverseName="countryRealGDP" inverseEntity="CountryName" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CountryName" positionX="-432" positionY="14" width="128" height="165"/>
+        <element name="M1Data" positionX="-83" positionY="72" width="128" height="120"/>
+        <element name="M2Data" positionX="-90" positionY="203" width="128" height="120"/>
+        <element name="NominalGDPData" positionX="-83" positionY="-55" width="128" height="120"/>
+        <element name="RealGDPData" positionX="-101" positionY="-189" width="128" height="120"/>
+    </elements>
+</model>

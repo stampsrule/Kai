@@ -45,23 +45,6 @@
     [self.tableView reloadData];
 
 
-//        _countryName = @[@"USA",
-//                      @"Canada",
-//                      @"China",
-//                      @"New Zealand",
-//                      @"Australia"];
-//        
-//        _countryMoneySupply = @[@"11011.60",
-//                       @"1800.31900",
-//                       @"113180.00",
-//                       @"269.13600",
-//                       @"1617.75400"];
-//    
-//        _countryIncome = @[@"15932.90",
-//                       @"1712.00100",
-//                       @"8230.00",
-//                       @"38.57500",
-//                       @"390.57200"];
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
@@ -101,8 +84,8 @@
     M2Data* m2object= (M2Data *)countryRecord.countryM2;
     RealGDPData* realGDPObject= (RealGDPData*)countryRecord.countryRealGDP;
     //2
-    cell.moneyLabel.text = [[NSNumber numberWithFloat:[m2object.current longValue]/1000000000] stringValue];
-    cell.incomeLabel.text = [[NSNumber numberWithFloat:[realGDPObject.current longValue]/1000000000] stringValue];
+    cell.moneyLabel.text = [[NSNumber numberWithDouble:[m2object.current doubleValue]/1000000000] stringValue];
+    cell.incomeLabel.text = [[NSNumber numberWithDouble:[realGDPObject.current doubleValue]/1000000000] stringValue];
     cell.countryLabel.text = countryRecord.name;
     return cell;
 }
@@ -167,8 +150,8 @@
         if ([segue.destinationViewController isKindOfClass:[econCountryViewController class]]) {
             econCountryViewController *ecvc = (econCountryViewController *)segue.destinationViewController;
             ecvc.strCountryName=countryRecord.name;
-            ecvc.strPassedMoneySupplyValue=[[NSNumber numberWithFloat:[m2object.current longValue]/1000000000] stringValue];
-            ecvc.strPassedIncomeValue =[[NSNumber numberWithFloat:[realGDPObject.current longValue]/1000000000] stringValue];
+            ecvc.strPassedMoneySupplyValue=[[NSNumber numberWithDouble:[m2object.current doubleValue]/1000000000] stringValue];
+            ecvc.strPassedIncomeValue =[[NSNumber numberWithDouble:[realGDPObject.current doubleValue]/1000000000] stringValue];
             ecvc.delegate=self.delegate[0];
         }
     }

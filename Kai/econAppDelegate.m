@@ -7,6 +7,17 @@
 //
 
 #import "econAppDelegate.h"
+#import "CountryName.h"
+#import "NominalGDPData.h"
+#import "RealGDPData.h"
+#import "M1Data.h"
+#import "M2Data.h"
+
+@interface econAppDelegate()
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+
+@end
+
 
 @implementation econAppDelegate
 
@@ -17,10 +28,199 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+        
+    NSData* countryData = [NSData dataWithContentsOfURL:
+                           [NSURL URLWithString:@"http://api.worldbank.org/country?per_page=256&format=json"]
+                           ];
+    NSData* nominalGDPData = [NSData dataWithContentsOfURL:
+                              [NSURL URLWithString:@"http://api.worldbank.org/countries/ALL/indicators/NY.GDP.MKTP.CN?format=json&date=2012&per_page=252"]
+                              ];
+    NSData* realGDPData = [NSData dataWithContentsOfURL:
+                           [NSURL URLWithString:@"http://api.worldbank.org/countries/ALL/indicators/NY.GDP.MKTP.KN?format=json&date=2012&per_page=252"]
+                           ];
+    NSData* m1Data = [NSData dataWithContentsOfURL:
+                      [NSURL URLWithString:@"http://api.worldbank.org/countries/ALL/indicators/FM.LBL.MONY.CN?format=json&date=2012&per_page=252"]
+                      ];
+    NSData* m2Data = [NSData dataWithContentsOfURL:
+                      [NSURL URLWithString:@"http://api.worldbank.org/countries/ALL/indicators/FM.LBL.MQMY.CN?format=json&date=2012&per_page=252"]
+                      ];
+    
+    
+    NSMutableArray* countryJson = nil;
+    if (countryData) {
+        countryJson = [NSJSONSerialization
+                       JSONObjectWithData:countryData
+                       options:NSJSONReadingMutableContainers
+                       error:nil];
+    }
+    
+    NSArray* nominalGDPJson = nil;
+    if (nominalGDPData) {
+        nominalGDPJson = [NSJSONSerialization
+                          JSONObjectWithData:nominalGDPData
+                          options:kNilOptions
+                          error:nil];
+    }
+    
+    NSArray* realGDPJson = nil;
+    if (realGDPData) {
+        realGDPJson = [NSJSONSerialization
+                       JSONObjectWithData:realGDPData
+                       options:kNilOptions
+                       error:nil];
+    }
+    
+    NSArray* m1Json = nil;
+    if (m1Data) {
+        m1Json = [NSJSONSerialization
+                  JSONObjectWithData:m1Data
+                  options:kNilOptions
+                  error:nil];
+    }
+    
+    NSArray* m2Json = nil;
+    if (m2Data) {
+        m2Json = [NSJSONSerialization
+                  JSONObjectWithData:m2Data
+                  options:kNilOptions
+                  error:nil];
+    }
+    
+    for (NSDictionary* country in countryJson[1]) {
+        NSString* nominalGDPValue;
+        NSString* realGDPValue;
+        NSString* m1Value;
+        NSString* m2Value;
+        NSString* nominalGDPYear;
+        NSString* realGDPYear;
+        NSString* m1Year;
+        NSString* m2Year;
+        
+        NSString *countryKey = [country objectForKey:@"iso2Code"];
+        NSString *countryName = [country objectForKey:@"name"];
+        
+        
+        //nominal GDP
+        for (NSDictionary* nomGDPDataCapsul in ((NSArray *)nominalGDPJson[1])) {
+            NSDictionary* countryIdentificationDictionary=[[NSDictionary alloc] initWithDictionary:[nomGDPDataCapsul objectForKey:@"country"]];
+            if ([[countryIdentificationDictionary objectForKey:@"id"] isEqualToString:countryKey]) {
+                nominalGDPValue=[nomGDPDataCapsul objectForKey:@"value"];
+                nominalGDPYear=[nomGDPDataCapsul objectForKey:@"date"];
+            }
+        }
+        
+        if (nominalGDPValue == nil || [nominalGDPValue isEqual:[NSNull null]] || [nominalGDPValue isKindOfClass:[NSNull class]]) {
+            nominalGDPValue=[NSString stringWithFormat:@"%d", 0];
+        }
+        
+        //real GDP
+        for (NSDictionary* realGDPDataCapsul in ((NSArray *)realGDPJson[1])) {
+            NSDictionary* countryIdentificationDictionary=[[NSDictionary alloc] initWithDictionary:[realGDPDataCapsul objectForKey:@"country"]];
+            if ([[countryIdentificationDictionary objectForKey:@"id"] isEqualToString:countryKey]) {
+                realGDPValue=[realGDPDataCapsul objectForKey:@"value"];
+                realGDPYear=[realGDPDataCapsul objectForKey:@"date"];
+            }
+        }
+        
+        if (realGDPValue == nil || [realGDPValue isEqual:[NSNull null]] || [realGDPValue isKindOfClass:[NSNull class]]) {
+            realGDPValue=[NSString stringWithFormat:@"%d", 0];
+        }
+        
+        //m1
+        for (NSDictionary* m1DataCapsul in ((NSArray *)m1Json[1])) {
+            NSDictionary* countryIdentificationDictionary=[[NSDictionary alloc] initWithDictionary:[m1DataCapsul objectForKey:@"country"]];
+            if ([[countryIdentificationDictionary objectForKey:@"id"] isEqualToString:countryKey]) {
+                m1Value=[m1DataCapsul objectForKey:@"value"];
+                m2Year=[m1DataCapsul objectForKey:@"date"];
+            }
+        }
+        
+        if (m1Value == nil || [m1Value isEqual:[NSNull null]] || [m1Value isKindOfClass:[NSNull class]]) {
+            m1Value=[NSString stringWithFormat:@"%d", 0];
+        }
+        
+        //m2
+        for (NSDictionary* m2DataCapsul in ((NSArray *)m2Json[1])) {
+            NSDictionary* countryIdentificationDictionary=[[NSDictionary alloc] initWithDictionary:[m2DataCapsul objectForKey:@"country"]];
+            if ([[countryIdentificationDictionary objectForKey:@"id"] isEqualToString:countryKey]) {
+                m2Value=[m2DataCapsul objectForKey:@"value"];
+                m2Year=[m2DataCapsul objectForKey:@"date"];
+            }
+        }
+        
+        if (m2Value == nil || [m2Value isEqual:[NSNull null]] || [m2Value isKindOfClass:[NSNull class]]) {
+            m2Value=[NSString stringWithFormat:@"%d", 0];
+        }
+        
+        
+        
+        
+        
+        if (
+            ![realGDPValue isEqualToString:@"0"] &&
+            ![nominalGDPValue isEqualToString:@"0"] &&
+            ![m1Value isEqualToString:@"0"] &&
+            ![m2Value isEqualToString:@"0"]
+            )
+        {
+            econAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+            self.managedObjectContext = appDelegate.managedObjectContext;
+            
+            CountryName *countryNameInfo = [NSEntityDescription insertNewObjectForEntityForName:@"CountryName" inManagedObjectContext:managedObjectContext];
+            countryNameInfo.name = countryName;
+            countryNameInfo.iso2code=countryKey;
+            countryNameInfo.lastChange=[NSDate date];
+            
+            NSString *dateStr = @"01-01-";
+            NSNumber *yearValue;
+            NSDateFormatter *editDate =   [[NSDateFormatter alloc] init];
+            [editDate setDateFormat:@"MM-dd-yyy"];
+            
+            
+            NominalGDPData *NominalGDPInfo = [NSEntityDescription insertNewObjectForEntityForName:@"NominalGDPData" inManagedObjectContext:managedObjectContext];
+            NominalGDPInfo.current = [NSNumber numberWithLongLong:[nominalGDPValue longLongValue]];
+            yearValue = [NSNumber numberWithInt:[nominalGDPYear intValue]];
+            dateStr=[dateStr stringByAppendingString:[yearValue stringValue]];
+            NominalGDPInfo.currentYear=[editDate dateFromString:dateStr];
+            
+            
+            RealGDPData *realGDPInfo = [NSEntityDescription insertNewObjectForEntityForName:@"RealGDPData" inManagedObjectContext:managedObjectContext];
+            realGDPInfo.current = [NSNumber numberWithLongLong:[realGDPValue longLongValue]];
+            yearValue = [NSNumber numberWithInt:[realGDPYear intValue]];
+            dateStr=[dateStr stringByAppendingString:[yearValue stringValue]];
+            realGDPInfo.currentYear=[editDate dateFromString:dateStr];
+
+            
+            M1Data *m1Info = [NSEntityDescription insertNewObjectForEntityForName:@"M1Data" inManagedObjectContext:managedObjectContext];
+            m1Info.current = [NSNumber numberWithLongLong:[m1Value longLongValue]];
+            yearValue = [NSNumber numberWithInt:[m1Year intValue]];
+            dateStr=[dateStr stringByAppendingString:[yearValue stringValue]];
+            m1Info.currentYear=[editDate dateFromString:dateStr];
+            
+            
+            M2Data *m2Info = [NSEntityDescription insertNewObjectForEntityForName:@"M2Data" inManagedObjectContext:managedObjectContext];
+            m2Info.current = [NSNumber numberWithLongLong:[m2Value longLongValue]];
+            yearValue = [NSNumber numberWithInt:[m2Year intValue]];
+            dateStr=[dateStr stringByAppendingString:[yearValue stringValue]];
+            m2Info.currentYear=[editDate dateFromString:dateStr];
+
+            
+            
+            
+            m2Info.countryForM2=countryNameInfo;
+            m1Info.countryForM1=countryNameInfo;
+            realGDPInfo.countryForRealGDP=countryNameInfo;
+            NominalGDPInfo.countryForNominalGDP=countryNameInfo;
+            countryNameInfo.countryM1=m1Info;
+            countryNameInfo.countryM2=m2Info;
+            countryNameInfo.countryNominalGDP=NominalGDPInfo;
+            countryNameInfo.countryRealGDP=realGDPInfo;
+        }
+    }
     return YES;
 }
-							
+
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -54,12 +254,12 @@
     // initializing NSFetchRequest
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"CountryName"];
     
-    
-//    //Setting Entity to be Queried
-//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Country"
-//                                              inManagedObjectContext:self.managedObjectContext];
-//    [fetchRequest setEntity:entity];
     NSError* error;
+    
+    // Set example predicate and sort orderings...
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortDescriptor]];
     
     // Query on managedObjectContext With Generated fetchRequest
     NSArray *fetchedCountries = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];

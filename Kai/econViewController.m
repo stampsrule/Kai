@@ -21,10 +21,10 @@
 @property (weak, nonatomic) IBOutlet UISlider *currentHomeIncomeSlider;
 @property (weak, nonatomic) IBOutlet UISlider *currentForeighnMoneySupplySlider;
 @property (weak, nonatomic) IBOutlet UISlider *currentForeighnIncomeSlider;
-@property (nonatomic) float tempHMS;
-@property (nonatomic) float tempHRI;
-@property (nonatomic) float tempFMS;
-@property (nonatomic) float tempFRI;
+@property (nonatomic) double tempHMS;
+@property (nonatomic) double tempHRI;
+@property (nonatomic) double tempFMS;
+@property (nonatomic) double tempFRI;
 
 @end
 
@@ -98,61 +98,61 @@
         pvc = segue.destinationViewController;
         pvc.delegate=self;
         pvc.strCountryName=self.homeCountry.name;
-        pvc.strPassedIncomeValue=[NSString stringWithFormat:@"%f", [self.homeCountry.realIncome floatValue]/tempFRI];
-        pvc.strPassedMoneySupplyValue=[NSString stringWithFormat:@"%f", [self.homeCountry.moneySupply floatValue]/tempFMS];
+        pvc.strPassedIncomeValue=[NSString stringWithFormat:@"%f", [self.homeCountry.realIncome doubleValue]/tempHRI];
+        pvc.strPassedMoneySupplyValue=[NSString stringWithFormat:@"%f", [self.homeCountry.moneySupply doubleValue]/tempHMS];
     }
     if ([self.segueName isEqualToString:@"segCountry2Pop"]){
         currentPopoverSegue = (UIStoryboardPopoverSegue *)segue;
         pvc = segue.destinationViewController;
         pvc.delegate=self;
         pvc.strCountryName=self.foreighnCountry.name;
-        pvc.strPassedIncomeValue=[NSString stringWithFormat:@"%f", [self.foreighnCountry.realIncome floatValue]/tempFRI];
-        pvc.strPassedMoneySupplyValue=[NSString stringWithFormat:@"%f", [self.foreighnCountry.moneySupply floatValue]/tempFMS];
+        pvc.strPassedIncomeValue=[NSString stringWithFormat:@"%f", [self.foreighnCountry.realIncome doubleValue]/tempFRI];
+        pvc.strPassedMoneySupplyValue=[NSString stringWithFormat:@"%f", [self.foreighnCountry.moneySupply doubleValue]/tempFMS];
     }
 
 }
 
 - (IBAction)resetMoneySupply:(UIButton *)sender {
-    self.homeCountry.moneySupply=[NSNumber numberWithFloat:[self.homeCountry.moneySupply floatValue]/self.currentHomeMoneySupplySlider.value];
+    self.homeCountry.moneySupply=[NSNumber numberWithDouble:[self.homeCountry.moneySupply doubleValue]/self.currentHomeMoneySupplySlider.value];
     self.currentHomeMoneySupplySlider.value=1;
 }
 
 - (IBAction)resetRealIncome:(UIButton *)sender {
-    self.homeCountry.realIncome=[NSNumber numberWithFloat:[self.homeCountry.realIncome floatValue]/self.currentHomeIncomeSlider.value];
+    self.homeCountry.realIncome=[NSNumber numberWithDouble:[self.homeCountry.realIncome doubleValue]/self.currentHomeIncomeSlider.value];
     self.currentHomeIncomeSlider.value=1;
 }
 
 - (IBAction)resetForeighnMoneySupply:(UIButton *)sender {
-    self.foreighnCountry.moneySupply=[NSNumber numberWithFloat:[self.foreighnCountry.moneySupply floatValue]/self.currentForeighnMoneySupplySlider.value];
+    self.foreighnCountry.moneySupply=[NSNumber numberWithDouble:[self.foreighnCountry.moneySupply doubleValue]/self.currentForeighnMoneySupplySlider.value];
     self.currentForeighnMoneySupplySlider.value=1;
 }
 
 - (IBAction)resetForeighnRealIncome:(UIButton *)sender {
-    self.foreighnCountry.realIncome=[NSNumber numberWithFloat:[self.foreighnCountry.realIncome floatValue]/self.currentForeighnIncomeSlider.value];
+    self.foreighnCountry.realIncome=[NSNumber numberWithDouble:[self.foreighnCountry.realIncome doubleValue]/self.currentForeighnIncomeSlider.value];
     self.currentForeighnIncomeSlider.value=1;
 }
 
 - (IBAction)changeHomeMoneySupply:(UISlider *)sender {
-    self.homeCountry.moneySupply=[NSNumber numberWithFloat:[self.homeCountry.moneySupply floatValue]/tempHMS];
-    self.homeCountry.moneySupply=[NSNumber numberWithFloat:[self.homeCountry.moneySupply floatValue]*sender.value];
+    self.homeCountry.moneySupply=[NSNumber numberWithDouble:[self.homeCountry.moneySupply doubleValue]/tempHMS];
+    self.homeCountry.moneySupply=[NSNumber numberWithDouble:[self.homeCountry.moneySupply doubleValue]*sender.value];
     tempHMS=sender.value;
 }
 
 - (IBAction)changeHomeRealIncome:(UISlider *)sender {
-    self.homeCountry.realIncome=[NSNumber numberWithFloat:[self.homeCountry.realIncome floatValue]/tempHRI];
-    self.homeCountry.realIncome=[NSNumber numberWithFloat:[self.homeCountry.moneySupply floatValue]*sender.value];
+    self.homeCountry.realIncome=[NSNumber numberWithDouble:[self.homeCountry.realIncome doubleValue]/tempHRI];
+    self.homeCountry.realIncome=[NSNumber numberWithDouble:[self.homeCountry.moneySupply doubleValue]*sender.value];
     tempHRI=sender.value;
 }
 
 - (IBAction)changeForeighnMoneySupply:(UISlider *)sender {
-    self.foreighnCountry.moneySupply=[NSNumber numberWithFloat:[self.foreighnCountry.moneySupply floatValue]/tempFMS];
-    self.foreighnCountry.moneySupply=[NSNumber numberWithFloat:[self.foreighnCountry.moneySupply floatValue]*sender.value];
+    self.foreighnCountry.moneySupply=[NSNumber numberWithDouble:[self.foreighnCountry.moneySupply doubleValue]/tempFMS];
+    self.foreighnCountry.moneySupply=[NSNumber numberWithDouble:[self.foreighnCountry.moneySupply doubleValue]*sender.value];
     tempFMS=sender.value;
 }
 
 - (IBAction)changeForeighnRealIncome:(UISlider *)sender {
-    self.foreighnCountry.realIncome=[NSNumber numberWithFloat:[self.foreighnCountry.realIncome floatValue]/tempFRI];
-    self.foreighnCountry.realIncome=[NSNumber numberWithFloat:[self.foreighnCountry.realIncome floatValue]*sender.value];
+    self.foreighnCountry.realIncome=[NSNumber numberWithDouble:[self.foreighnCountry.realIncome doubleValue]/tempFRI];
+    self.foreighnCountry.realIncome=[NSNumber numberWithDouble:[self.foreighnCountry.realIncome doubleValue]*sender.value];
     tempFRI=sender.value;
 }
 

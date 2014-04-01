@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6F044E0118B2DE040032E69F /* econGenUtilFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F044E0018B2DE040032E69F /* econGenUtilFunc.m */; };
 		6F1926C818CFC320009DCA41 /* econCountryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1926C718CFC320009DCA41 /* econCountryTableViewCell.m */; };
-		6F3002BC18D00F9900C88F5A /* econCountryGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3002BB18D00F9900C88F5A /* econCountryGraphViewController.m */; };
 		6F6D66F518D8C08C0007DE4D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6D66F418D8C08C0007DE4D /* QuartzCore.framework */; };
 		6F960D4418C545C5008203D0 /* econCountryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F960D4318C545C5008203D0 /* econCountryViewController.m */; };
 		6FA59A0A18A95E8A00F0EE80 /* econcountry.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA59A0918A95E8A00F0EE80 /* econcountry.m */; };
@@ -56,8 +55,6 @@
 		6F044E0018B2DE040032E69F /* econGenUtilFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = econGenUtilFunc.m; sourceTree = "<group>"; };
 		6F1926C618CFC320009DCA41 /* econCountryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = econCountryTableViewCell.h; sourceTree = "<group>"; };
 		6F1926C718CFC320009DCA41 /* econCountryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = econCountryTableViewCell.m; sourceTree = "<group>"; };
-		6F3002BA18D00F9900C88F5A /* econCountryGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = econCountryGraphViewController.h; sourceTree = "<group>"; };
-		6F3002BB18D00F9900C88F5A /* econCountryGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = econCountryGraphViewController.m; sourceTree = "<group>"; };
 		6F6D66F418D8C08C0007DE4D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6F960D4218C545C5008203D0 /* econCountryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = econCountryViewController.h; sourceTree = "<group>"; };
 		6F960D4318C545C5008203D0 /* econCountryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = econCountryViewController.m; sourceTree = "<group>"; };
@@ -200,8 +197,6 @@
 				6FC2FB3718A4388D00DE5C6D /* econAppDelegate.m */,
 				6FC2FB3918A4388D00DE5C6D /* Main_iPhone.storyboard */,
 				6FC2FB3C18A4388D00DE5C6D /* Main_iPad.storyboard */,
-				6F3002BA18D00F9900C88F5A /* econCountryGraphViewController.h */,
-				6F3002BB18D00F9900C88F5A /* econCountryGraphViewController.m */,
 				6FC2FB3F18A4388D00DE5C6D /* econViewController.h */,
 				6FC2FB4018A4388D00DE5C6D /* econViewController.m */,
 				6F1926C618CFC320009DCA41 /* econCountryTableViewCell.h */,
@@ -353,7 +348,6 @@
 				6FAB1C3F18E3833B0033C6D5 /* RealGDPData.m in Sources */,
 				6FAB1C4518E3833B0033C6D5 /* NominalGDPData.m in Sources */,
 				6FA59A1318AD95EF00F0EE80 /* econMacroModel.m in Sources */,
-				6F3002BC18D00F9900C88F5A /* econCountryGraphViewController.m in Sources */,
 				6F960D4418C545C5008203D0 /* econCountryViewController.m in Sources */,
 				6F044E0118B2DE040032E69F /* econGenUtilFunc.m in Sources */,
 				6FAB1C4218E3833B0033C6D5 /* M1Data.m in Sources */,

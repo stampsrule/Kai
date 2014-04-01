@@ -8,6 +8,7 @@
 
 #import "econViewController.h"
 #import "econcountry.h"
+
 //#import "econCountryViewController.h"
 @interface econViewController ()
 
@@ -33,6 +34,7 @@
 
 @synthesize currentPopoverSegue;
 @synthesize pvc;
+@synthesize menuBtn;
 @synthesize tempFMS;
 @synthesize tempFRI;
 @synthesize tempHMS;
@@ -65,6 +67,38 @@
     self.currentForeighnMoneySupplySlider.value=1;
     self.currentHomeIncomeSlider.value=1;
     self.currentHomeMoneySupplySlider.value=1;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
+    
+    self.view.layer.shadowOpacity = 0.75f;
+    self.view.layer.shadowRadius = 10.0f;
+    self.view.layer.shadowColor = [UIColor blackColor].CGColor;
+    
+    
+    if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
+        self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
+    }
+    
+    
+    //[self.view addGestureRecognizer:self.slidingViewController.panGesture];
+    
+    self.menuBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    menuBtn.frame = CGRectMake(8, 20, 34, 24);
+    [menuBtn setBackgroundImage:[UIImage imageNamed:@"menuButton.png"] forState:UIControlStateNormal];
+    [menuBtn addTarget:self action:@selector(revealMenu:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:self.menuBtn];
+    
+    
+}
+
+- (IBAction)revealMenu:(id)sender
+{
+    [self.slidingViewController anchorTopViewTo:ECRight];
 }
 
 

@@ -22,6 +22,12 @@
 		6FAB1C4218E3833B0033C6D5 /* M1Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FAB1C4118E3833B0033C6D5 /* M1Data.m */; };
 		6FAB1C4518E3833B0033C6D5 /* NominalGDPData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FAB1C4418E3833B0033C6D5 /* NominalGDPData.m */; };
 		6FAB1C4818E3833C0033C6D5 /* CountryName.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FAB1C4718E3833C0033C6D5 /* CountryName.m */; };
+		6FAB1C5418EA9AEE0033C6D5 /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FAB1C5118EA9AEE0033C6D5 /* ECSlidingViewController.m */; };
+		6FAB1C5518EA9AEE0033C6D5 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FAB1C5318EA9AEE0033C6D5 /* UIImage+ImageWithUIView.m */; };
+		6FAB1C5718EA9B130033C6D5 /* menuButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FAB1C5618EA9B130033C6D5 /* menuButton@2x.png */; };
+		6FAB1C5B18EAAC560033C6D5 /* initViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FAB1C5A18EAAC560033C6D5 /* initViewController.m */; };
+		6FAB1C6118EAADD10033C6D5 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FAB1C6018EAADD10033C6D5 /* MenuViewController.m */; };
+		6FAB1C6318EAE34F0033C6D5 /* imageedit_7_6303384099.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FAB1C6218EAE34F0033C6D5 /* imageedit_7_6303384099.png */; };
 		6FC2FB2818A4388D00DE5C6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FC2FB2718A4388D00DE5C6D /* Foundation.framework */; };
 		6FC2FB2A18A4388D00DE5C6D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FC2FB2918A4388D00DE5C6D /* CoreGraphics.framework */; };
 		6FC2FB2C18A4388D00DE5C6D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FC2FB2B18A4388D00DE5C6D /* UIKit.framework */; };
@@ -79,6 +85,16 @@
 		6FAB1C4418E3833B0033C6D5 /* NominalGDPData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NominalGDPData.m; path = Data/NominalGDPData.m; sourceTree = "<group>"; };
 		6FAB1C4618E3833C0033C6D5 /* CountryName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CountryName.h; path = Data/CountryName.h; sourceTree = "<group>"; };
 		6FAB1C4718E3833C0033C6D5 /* CountryName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CountryName.m; path = Data/CountryName.m; sourceTree = "<group>"; };
+		6FAB1C5018EA9AEE0033C6D5 /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingViewController.h; sourceTree = "<group>"; };
+		6FAB1C5118EA9AEE0033C6D5 /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingViewController.m; sourceTree = "<group>"; };
+		6FAB1C5218EA9AEE0033C6D5 /* UIImage+ImageWithUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageWithUIView.h"; sourceTree = "<group>"; };
+		6FAB1C5318EA9AEE0033C6D5 /* UIImage+ImageWithUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageWithUIView.m"; sourceTree = "<group>"; };
+		6FAB1C5618EA9B130033C6D5 /* menuButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuButton@2x.png"; sourceTree = "<group>"; };
+		6FAB1C5918EAAC560033C6D5 /* initViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = initViewController.h; path = slidingview/initViewController.h; sourceTree = SOURCE_ROOT; };
+		6FAB1C5A18EAAC560033C6D5 /* initViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = initViewController.m; path = slidingview/initViewController.m; sourceTree = SOURCE_ROOT; };
+		6FAB1C5F18EAADD10033C6D5 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = slidingview/MenuViewController.h; sourceTree = SOURCE_ROOT; };
+		6FAB1C6018EAADD10033C6D5 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = slidingview/MenuViewController.m; sourceTree = SOURCE_ROOT; };
+		6FAB1C6218EAE34F0033C6D5 /* imageedit_7_6303384099.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = imageedit_7_6303384099.png; path = Kai/imageedit_7_6303384099.png; sourceTree = "<group>"; };
 		6FC2FB2418A4388D00DE5C6D /* Kai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FC2FB2718A4388D00DE5C6D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6FC2FB2918A4388D00DE5C6D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -147,7 +163,7 @@
 			name = Data;
 			sourceTree = "<group>";
 		};
-		6FC2FB1B18A4388D00DE5C6D = {
+		6FAB1C4E18EA99A20033C6D5 /* International Macroecon Model */ = {
 			isa = PBXGroup;
 			children = (
 				6FA59A0818A95E8A00F0EE80 /* econcountry.h */,
@@ -160,11 +176,46 @@
 				6F044E0018B2DE040032E69F /* econGenUtilFunc.m */,
 				6FA59A0B18AA9C5100F0EE80 /* econUtilExchangeRateFunc.h */,
 				6FA59A0C18AA9C5100F0EE80 /* econUtilExchangeRateFunc.m */,
+			);
+			name = "International Macroecon Model";
+			sourceTree = "<group>";
+		};
+		6FAB1C4F18EA9AEE0033C6D5 /* ECSlidingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6FAB1C5018EA9AEE0033C6D5 /* ECSlidingViewController.h */,
+				6FAB1C5118EA9AEE0033C6D5 /* ECSlidingViewController.m */,
+				6FAB1C5218EA9AEE0033C6D5 /* UIImage+ImageWithUIView.h */,
+				6FAB1C5318EA9AEE0033C6D5 /* UIImage+ImageWithUIView.m */,
+			);
+			path = ECSlidingViewController;
+			sourceTree = "<group>";
+		};
+		6FAB1C5818EAAC080033C6D5 /* Sliding View */ = {
+			isa = PBXGroup;
+			children = (
+				6FAB1C5918EAAC560033C6D5 /* initViewController.h */,
+				6FAB1C5A18EAAC560033C6D5 /* initViewController.m */,
+				6FAB1C5F18EAADD10033C6D5 /* MenuViewController.h */,
+				6FAB1C6018EAADD10033C6D5 /* MenuViewController.m */,
+			);
+			name = "Sliding View";
+			path = ECSlidingViewController;
+			sourceTree = "<group>";
+		};
+		6FC2FB1B18A4388D00DE5C6D = {
+			isa = PBXGroup;
+			children = (
+				6FAB1C4F18EA9AEE0033C6D5 /* ECSlidingViewController */,
+				6FAB1C4E18EA99A20033C6D5 /* International Macroecon Model */,
 				6FAB1BEA18E36FC70033C6D5 /* Data */,
 				6FC2FB2D18A4388D00DE5C6D /* Kai */,
 				6FC2FB4F18A4388D00DE5C6D /* KaiTests */,
 				6FC2FB2618A4388D00DE5C6D /* Frameworks */,
 				6FC2FB2518A4388D00DE5C6D /* Products */,
+				6FAB1C6218EAE34F0033C6D5 /* imageedit_7_6303384099.png */,
+				6FAB1C5618EA9B130033C6D5 /* menuButton@2x.png */,
+				6FAB1C5818EAAC080033C6D5 /* Sliding View */,
 			);
 			sourceTree = "<group>";
 		};
@@ -321,6 +372,8 @@
 				6FC2FB4318A4388D00DE5C6D /* Images.xcassets in Resources */,
 				6FC2FB3B18A4388D00DE5C6D /* Main_iPhone.storyboard in Resources */,
 				6FC2FB3218A4388D00DE5C6D /* InfoPlist.strings in Resources */,
+				6FAB1C6318EAE34F0033C6D5 /* imageedit_7_6303384099.png in Resources */,
+				6FAB1C5718EA9B130033C6D5 /* menuButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,14 +395,18 @@
 				6FAB1C3C18E3833B0033C6D5 /* M2Data.m in Sources */,
 				6FD6FCA118CE56730034B773 /* econCountryTableViewController.m in Sources */,
 				6FC2FB3418A4388D00DE5C6D /* main.m in Sources */,
+				6FAB1C5518EA9AEE0033C6D5 /* UIImage+ImageWithUIView.m in Sources */,
+				6FAB1C6118EAADD10033C6D5 /* MenuViewController.m in Sources */,
 				6FC2FB3818A4388D00DE5C6D /* econAppDelegate.m in Sources */,
 				6FA59A1018AAD6B000F0EE80 /* econUtilMonetaryTheoryFunc.m in Sources */,
+				6FAB1C5B18EAAC560033C6D5 /* initViewController.m in Sources */,
 				6FA59A0A18A95E8A00F0EE80 /* econcountry.m in Sources */,
 				6FAB1C3F18E3833B0033C6D5 /* RealGDPData.m in Sources */,
 				6FAB1C4518E3833B0033C6D5 /* NominalGDPData.m in Sources */,
 				6FA59A1318AD95EF00F0EE80 /* econMacroModel.m in Sources */,
 				6F960D4418C545C5008203D0 /* econCountryViewController.m in Sources */,
 				6F044E0118B2DE040032E69F /* econGenUtilFunc.m in Sources */,
+				6FAB1C5418EA9AEE0033C6D5 /* ECSlidingViewController.m in Sources */,
 				6FAB1C4218E3833B0033C6D5 /* M1Data.m in Sources */,
 				6FAB1C4818E3833C0033C6D5 /* CountryName.m in Sources */,
 				6FA59A0D18AA9C5100F0EE80 /* econUtilExchangeRateFunc.m in Sources */,

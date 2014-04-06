@@ -148,7 +148,7 @@
             }
         }
         
-        if (m2Value == nil || [m2Value isEqual:[NSNull null]] || [m2Value isKindOfClass:[NSNull class]]) {
+        if ([m2Value isEqual:[NSNull null]] || [m2Value isKindOfClass:[NSNull class]]) {
             m2Value=[NSString stringWithFormat:@"%d", 0];
         }
         

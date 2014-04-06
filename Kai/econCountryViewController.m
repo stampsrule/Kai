@@ -26,7 +26,8 @@
 @synthesize moneySupply;
 @synthesize Income;
 @synthesize strCountryName;
-@synthesize strPassedIncomeValue;
+@synthesize strPassedRealIncomeValue;
+@synthesize strPassedNominalIncomeValue;
 @synthesize strPassedMoneySupplyValue;
 
 @synthesize delegate;
@@ -64,8 +65,7 @@
     }
     if (![moneySupply.text isEqualToString: @""] && ![Income.text isEqualToString: @""]) {
         [delegate dismissPopCountry: countryName.text
-                        moneySupply: [NSNumber numberWithFloat:[moneySupply.text floatValue]]
-                             income: [NSNumber numberWithFloat: [Income.text floatValue]]];
+                        moneySupply:[NSNumber numberWithDouble:[strPassedMoneySupplyValue doubleValue]] realincome:[NSNumber numberWithDouble:[strPassedRealIncomeValue doubleValue]] nominalIncome:[NSNumber numberWithDouble:[strPassedNominalIncomeValue doubleValue]]];
         
     }
     
@@ -87,7 +87,7 @@
 - (void)viewWillAppear: (BOOL)animated {
     [countryName setText:strCountryName];
     [moneySupply setText:strPassedMoneySupplyValue];
-    [Income setText:strPassedIncomeValue];
+    [Income setText:strPassedRealIncomeValue];
 }
 
 

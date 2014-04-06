@@ -7,6 +7,7 @@
 //
 
 #import "econcountry.h"
+#import "econUtilMonetaryTheoryFunc.h"
 
 @interface econcountry()
 

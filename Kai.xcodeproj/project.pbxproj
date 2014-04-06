@@ -44,6 +44,7 @@
 		6FC2FB5418A4388D00DE5C6D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6FC2FB5218A4388D00DE5C6D /* InfoPlist.strings */; };
 		6FC2FB5618A4388D00DE5C6D /* KaiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FC2FB5518A4388D00DE5C6D /* KaiTests.m */; };
 		6FD6FCA118CE56730034B773 /* econCountryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD6FCA018CE56730034B773 /* econCountryTableViewController.m */; };
+		6FF1DD6018F12DE9003D6687 /* econMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF1DD5F18F12DE9003D6687 /* econMainView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,8 @@
 		6FC2FB5518A4388D00DE5C6D /* KaiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KaiTests.m; sourceTree = "<group>"; };
 		6FD6FC9F18CE56730034B773 /* econCountryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = econCountryTableViewController.h; sourceTree = "<group>"; };
 		6FD6FCA018CE56730034B773 /* econCountryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = econCountryTableViewController.m; sourceTree = "<group>"; };
+		6FF1DD5E18F12DE9003D6687 /* econMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = econMainView.h; sourceTree = "<group>"; };
+		6FF1DD5F18F12DE9003D6687 /* econMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = econMainView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +251,8 @@
 				6FC2FB3718A4388D00DE5C6D /* econAppDelegate.m */,
 				6FC2FB3918A4388D00DE5C6D /* Main_iPhone.storyboard */,
 				6FC2FB3C18A4388D00DE5C6D /* Main_iPad.storyboard */,
+				6FF1DD5E18F12DE9003D6687 /* econMainView.h */,
+				6FF1DD5F18F12DE9003D6687 /* econMainView.m */,
 				6FC2FB3F18A4388D00DE5C6D /* econViewController.h */,
 				6FC2FB4018A4388D00DE5C6D /* econViewController.m */,
 				6F1926C618CFC320009DCA41 /* econCountryTableViewCell.h */,
@@ -398,6 +403,7 @@
 				6FAB1C5518EA9AEE0033C6D5 /* UIImage+ImageWithUIView.m in Sources */,
 				6FAB1C6118EAADD10033C6D5 /* MenuViewController.m in Sources */,
 				6FC2FB3818A4388D00DE5C6D /* econAppDelegate.m in Sources */,
+				6FF1DD6018F12DE9003D6687 /* econMainView.m in Sources */,
 				6FA59A1018AAD6B000F0EE80 /* econUtilMonetaryTheoryFunc.m in Sources */,
 				6FAB1C5B18EAAC560033C6D5 /* initViewController.m in Sources */,
 				6FA59A0A18A95E8A00F0EE80 /* econcountry.m in Sources */,

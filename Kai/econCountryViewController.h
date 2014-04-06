@@ -19,7 +19,8 @@
 @property (weak) id <econCountryViewControllerDelegate> delegate;
 @property (strong, nonatomic) NSString *strCountryName;
 @property (strong, nonatomic) NSString *strPassedMoneySupplyValue;
-@property (strong, nonatomic) NSString *strPassedIncomeValue;
+@property (strong, nonatomic) NSString *strPassedRealIncomeValue;
+@property (strong, nonatomic) NSString *strPassedNominalIncomeValue;
 
 
 - (IBAction)SaveCountryData:(UIButton *)sender;
@@ -32,6 +33,7 @@
 
 - (void)dismissPopCountry: (NSString *)Country
               moneySupply: (NSNumber *) moneySupply
-                   income: (NSNumber *) income;
+               realincome: (NSNumber *) realIncome
+            nominalIncome: (NSNumber *) nominalIncome;
 
 @end

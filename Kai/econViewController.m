@@ -8,6 +8,7 @@
 
 #import "econViewController.h"
 #import "econcountry.h"
+#import "econUtilMonetaryTheoryFunc.h"
 
 
 //#import "econCountryViewController.h"
@@ -20,36 +21,6 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *popOverFinished;
 @property (weak, nonatomic) NSString* segueName;
-@property (weak, nonatomic) IBOutlet UIButton *homeCountryButton;
-@property (weak, nonatomic) IBOutlet UIButton *foreignCountryButton;
-@property (weak, nonatomic) IBOutlet UISlider *currentHomeMoneySupplySlider;
-@property (weak, nonatomic) IBOutlet UISlider *currentHomeIncomeSlider;
-@property (weak, nonatomic) IBOutlet UISlider *currentForeighnMoneySupplySlider;
-@property (weak, nonatomic) IBOutlet UISlider *currentForeighnIncomeSlider;
-@property (weak, nonatomic) IBOutlet UISlider *FutureHomeMoneySupplySlider;
-@property (weak, nonatomic) IBOutlet UISlider *FutureHomeIncomeSlider;
-@property (weak, nonatomic) IBOutlet UISlider *FutureForeighnMoneySupplySlider;
-@property (weak, nonatomic) IBOutlet UISlider *FutureForeighnIncomeSlider;
-@property (weak, nonatomic) IBOutlet UILabel *homeCurrnetMoneySupplyLabel;
-@property (weak, nonatomic) IBOutlet UILabel *foreignCurrentMoneySupplyLabel;
-@property (weak, nonatomic) IBOutlet UILabel *HomeFutureMoneySupplyLabel;
-@property (weak, nonatomic) IBOutlet UILabel *foreignFutureMoneySupplyLabel;
-@property (weak, nonatomic) IBOutlet UILabel *homeCurrentRealIncomeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *foreignCurrentRealIncomeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *homeFutureRealIncomeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *foreignFutureRealIncomeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *homeNominalInterestRateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *foreignNominalInterestRate;
-@property (weak, nonatomic) IBOutlet UILabel *homePriceLevel;
-@property (weak, nonatomic) IBOutlet UILabel *foreignPriceLevelLabel;
-@property (weak, nonatomic) IBOutlet UILabel *exchangeRateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *expectedFutureExchangeRateLabel;
-@property (weak, nonatomic) IBOutlet UIButton *nominalInterestRateButton;
-@property (weak, nonatomic) IBOutlet UIButton *ForeignNominalInterestRateButton;
-@property (weak, nonatomic) IBOutlet UIButton *ExchangeRateButton;
-@property (weak, nonatomic) IBOutlet UIButton *HomePriceLevelButton;
-@property (weak, nonatomic) IBOutlet UIButton *foreignPriceLevelButton;
-@property (weak, nonatomic) IBOutlet UIButton *ExpectedFutureExchangeRateButton;
 @property (nonatomic) double tempHMS;
 @property (nonatomic) double tempHRI;
 @property (nonatomic) double tempFMS;
@@ -182,25 +153,34 @@
 }
 
 
-- (void)dismissPopCountry: (NSString *)Country moneySupply: (NSNumber *) moneySupply income: (NSNumber *) income;
+- (void)dismissPopCountry: (NSString *)Country moneySupply: (NSNumber *) moneySupply realincome: (NSNumber *) realIncome
+            nominalIncome: (NSNumber *) nominalIncome
  {
      if ([self.segueName isEqualToString:@"segCountry2Pop"]) {
          self.foreighnCountry.name=Country;
          self.foreighnCountryFuture.name=Country;
          [self.foreignCountryButton setAttributedTitle:[[NSMutableAttributedString alloc] initWithString:self.foreighnCountry.name attributes:@{NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]}] forState:UIControlStateNormal];
          self.foreighnCountry.moneySupply=moneySupply;
-         self.foreighnCountry.realIncome=income;
+         self.foreighnCountry.realIncome=realIncome;
+         self.foreighnCountry.nominalIncome=nominalIncome;
          self.foreighnCountryFuture.moneySupply=moneySupply;
-         self.foreighnCountryFuture.realIncome=income;
+         self.foreighnCountryFuture.realIncome=realIncome;
+         self.foreighnCountryFuture.nominalIncome=nominalIncome;
+         [self setNominalInterestRate:self.foreighnCountryFuture];
+         [self setNominalInterestRate:self.foreighnCountry];
      }
      if ([self.segueName isEqualToString:@"segCountry1Pop"]) {
          self.homeCountry.name=Country;
          self.homeCountryFuture.name=Country;
          [self.homeCountryButton setAttributedTitle:[[NSMutableAttributedString alloc] initWithString:self.homeCountry.name attributes:@{NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]}] forState:UIControlStateNormal];
          self.homeCountry.moneySupply=moneySupply;
-         self.homeCountry.realIncome=income;
+         self.homeCountry.realIncome=realIncome;
+         self.homeCountry.nominalIncome=nominalIncome;
          self.homeCountryFuture.moneySupply=moneySupply;
-         self.homeCountryFuture.realIncome=income;
+         self.homeCountryFuture.realIncome=realIncome;
+         self.homeCountryFuture.nominalIncome=nominalIncome;
+         [self setNominalInterestRate:self.homeCountryFuture];
+         [self setNominalInterestRate:self.homeCountry];
      }
      [[currentPopoverSegue popoverController] dismissPopoverAnimated: YES]; // dismiss the popover
      self.currentForeighnIncomeSlider.value=1;
@@ -224,7 +204,7 @@
         pvc = segue.destinationViewController;
         pvc.delegate=self;
         pvc.strCountryName=self.homeCountry.name;
-        pvc.strPassedIncomeValue=[NSString stringWithFormat:@"%f", [self.homeCountry.realIncome doubleValue]/tempHRI];
+        pvc.strPassedRealIncomeValue=[NSString stringWithFormat:@"%f", [self.homeCountry.realIncome doubleValue]/tempHRI];
         pvc.strPassedMoneySupplyValue=[NSString stringWithFormat:@"%f", [self.homeCountry.moneySupply doubleValue]/tempHMS];
     }
     if ([self.segueName isEqualToString:@"segCountry2Pop"]){
@@ -232,7 +212,7 @@
         pvc = segue.destinationViewController;
         pvc.delegate=self;
         pvc.strCountryName=self.foreighnCountry.name;
-        pvc.strPassedIncomeValue=[NSString stringWithFormat:@"%f", [self.foreighnCountry.realIncome doubleValue]/tempFRI];
+        pvc.strPassedRealIncomeValue=[NSString stringWithFormat:@"%f", [self.foreighnCountry.realIncome doubleValue]/tempFRI];
         pvc.strPassedMoneySupplyValue=[NSString stringWithFormat:@"%f", [self.foreighnCountry.moneySupply doubleValue]/tempFMS];
     }
 
@@ -265,6 +245,12 @@
 }
 
 - (IBAction)changeHomeMoneySupply:(UISlider *)sender {
+    if (sender.value<0.1) {
+        sender.value=0.1;
+    }
+    if (sender.value>1.9) {
+        sender.value=1.9;
+    }
     self.homeCountry.moneySupply=[NSNumber numberWithDouble:[self.homeCountry.moneySupply doubleValue]/tempHMS];
     self.homeCountry.moneySupply=[NSNumber numberWithDouble:[self.homeCountry.moneySupply doubleValue]*sender.value];
     tempHMS=sender.value;
@@ -272,6 +258,12 @@
 }
 
 - (IBAction)changeHomeRealIncome:(UISlider *)sender {
+    if (sender.value<0.1) {
+        sender.value=0.1;
+    }
+    if (sender.value>1.9) {
+        sender.value=1.9;
+    }
     self.homeCountry.realIncome=[NSNumber numberWithDouble:[self.homeCountry.realIncome doubleValue]/tempHRI];
     self.homeCountry.realIncome=[NSNumber numberWithDouble:[self.homeCountry.moneySupply doubleValue]*sender.value];
     tempHRI=sender.value;
@@ -279,6 +271,12 @@
 }
 
 - (IBAction)changeForeighnMoneySupply:(UISlider *)sender {
+    if (sender.value<0.1) {
+        sender.value=0.1;
+    }
+    if (sender.value>1.9) {
+        sender.value=1.9;
+    }
     self.foreighnCountry.moneySupply=[NSNumber numberWithDouble:[self.foreighnCountry.moneySupply doubleValue]/tempFMS];
     self.foreighnCountry.moneySupply=[NSNumber numberWithDouble:[self.foreighnCountry.moneySupply doubleValue]*sender.value];
     tempFMS=sender.value;
@@ -286,6 +284,12 @@
 }
 
 - (IBAction)changeForeighnRealIncome:(UISlider *)sender {
+    if (sender.value<0.1) {
+        sender.value=0.1;
+    }
+    if (sender.value>1.9) {
+        sender.value=1.9;
+    }
     self.foreighnCountry.realIncome=[NSNumber numberWithDouble:[self.foreighnCountry.realIncome doubleValue]/tempFRI];
     self.foreighnCountry.realIncome=[NSNumber numberWithDouble:[self.foreighnCountry.realIncome doubleValue]*sender.value];
     tempFRI=sender.value;
@@ -317,6 +321,12 @@
 }
 
 - (IBAction)changeFutureHomeMoneySupply:(UISlider *)sender {
+    if (sender.value<0.1) {
+        sender.value=0.1;
+    }
+    if (sender.value>1.9) {
+        sender.value=1.9;
+    }
     self.homeCountryFuture.moneySupply=[NSNumber numberWithDouble:[self.homeCountryFuture.moneySupply doubleValue]/tempFHMS];
     self.homeCountryFuture.moneySupply=[NSNumber numberWithDouble:[self.homeCountryFuture.moneySupply doubleValue]*sender.value];
     tempFHMS=sender.value;
@@ -324,6 +334,12 @@
 }
 
 - (IBAction)changeFutureHomeRealIncome:(UISlider *)sender {
+    if (sender.value<0.1) {
+        sender.value=0.1;
+    }
+    if (sender.value>1.9) {
+        sender.value=1.9;
+    }
     self.homeCountryFuture.realIncome=[NSNumber numberWithDouble:[self.homeCountryFuture.realIncome doubleValue]/tempFHRI];
     self.homeCountryFuture.realIncome=[NSNumber numberWithDouble:[self.homeCountryFuture.moneySupply doubleValue]*sender.value];
     tempFHRI=sender.value;
@@ -331,6 +347,12 @@
 }
 
 - (IBAction)changeFutureForeighnMoneySupply:(UISlider *)sender {
+    if (sender.value<0.1) {
+        sender.value=0.1;
+    }
+    if (sender.value>1.9) {
+        sender.value=1.9;
+    }
     self.foreighnCountryFuture.moneySupply=[NSNumber numberWithDouble:[self.foreighnCountryFuture.moneySupply doubleValue]/tempFFMS];
     self.foreighnCountryFuture.moneySupply=[NSNumber numberWithDouble:[self.foreighnCountryFuture.moneySupply doubleValue]*sender.value];
     tempFFMS=sender.value;
@@ -338,33 +360,52 @@
 }
 
 - (IBAction)changeFutureForeighnRealIncome:(UISlider *)sender {
+    if (sender.value<0.1) {
+        sender.value=0.1;
+    }
+    if (sender.value>1.9) {
+        sender.value=1.9;
+    }
     self.foreighnCountryFuture.realIncome=[NSNumber numberWithDouble:[self.foreighnCountryFuture.realIncome doubleValue]/tempFFRI];
     self.foreighnCountryFuture.realIncome=[NSNumber numberWithDouble:[self.foreighnCountryFuture.realIncome doubleValue]*sender.value];
     tempFFRI=sender.value;
     [self updateCountryLabels];
 }
 
-
+-(void)setNominalInterestRate:(econcountry *) aCountry
+{
+    NSLog(@"sending: %@", aCountry.nominalIncome);
+    aCountry.nominalInterestRate=[NSNumber numberWithFloat:[econUtilMonetaryTheoryFunc nominalInterestRateFromMoneyDemand:[aCountry.moneySupply floatValue] nominalIncome:[aCountry.nominalIncome floatValue]]];
+}
 
 
 
 -(void)updateCountryLabels
 {
     
-    homeCurrnetMoneySupplyLabel.text=[self.homeCountry.moneySupply stringValue];
-    foreignCurrentMoneySupplyLabel.text=[self.foreighnCountry.moneySupply stringValue];
-    HomeFutureMoneySupplyLabel.text=[self.homeCountryFuture.moneySupply stringValue];
-    foreignFutureMoneySupplyLabel.text=[self.foreighnCountryFuture.moneySupply stringValue];
-    homeCurrentRealIncomeLabel.text=[self.homeCountry.realIncome stringValue];
-    foreignCurrentRealIncomeLabel.text=[self.foreighnCountry.realIncome stringValue];
-    homeFutureRealIncomeLabel.text=[self.homeCountryFuture.realIncome stringValue];
-    foreignFutureRealIncomeLabel.text=[self.foreighnCountryFuture.realIncome stringValue];
+    homeCurrnetMoneySupplyLabel.text=[NSString stringWithFormat:@"%.02f",[self.homeCountry.moneySupply floatValue]];
+    foreignCurrentMoneySupplyLabel.text=[NSString stringWithFormat:@"%.02f",[self.foreighnCountry.moneySupply floatValue]];
+    HomeFutureMoneySupplyLabel.text=[NSString stringWithFormat:@"%.02f",[self.homeCountryFuture.moneySupply floatValue]];
+    foreignFutureMoneySupplyLabel.text=[NSString stringWithFormat:@"%.02f", [self.foreighnCountryFuture.moneySupply floatValue]];
+    homeCurrentRealIncomeLabel.text=[NSString stringWithFormat:@"%.02f", [self.homeCountry.realIncome floatValue]];
+    foreignCurrentRealIncomeLabel.text=[NSString stringWithFormat:@"%.02f",[self.foreighnCountry.realIncome floatValue]];
+    homeFutureRealIncomeLabel.text=[NSString stringWithFormat:@"%.02f", [self.homeCountryFuture.realIncome floatValue]];
+    foreignFutureRealIncomeLabel.text=[NSString stringWithFormat:@"%.02f", [self.foreighnCountryFuture.realIncome floatValue]];
+    
+    
+    
     homeNominalInterestRateLabel.text=[self.homeCountry.nominalInterestRate stringValue];
+    
     foreignNominalInterestRate.text=[self.foreighnCountry.nominalInterestRate stringValue];
+    
     homePriceLevel.text=[self.homeCountryFuture.priceLevel stringValue];
+    
     foreignPriceLevelLabel.text=[self.foreighnCountryFuture.priceLevel stringValue];
+    
     exchangeRateLabel.text=[NSString stringWithFormat:@"%f", self.currentExchangeRate];
+    
     expectedFutureExchangeRateLabel.text=[NSString stringWithFormat:@"%f", self.expectedFutureExchangeRate];
+    
     
 }
 

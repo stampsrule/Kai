@@ -12,6 +12,7 @@
 @interface econCountryTableViewController : UITableViewController
 @property (nonatomic, strong) NSArray *countryRealIncome;
 @property (nonatomic, strong) NSArray *countryNominalIncome;
+@property (nonatomic, strong) NSArray *countryNominalInterest;
 @property (nonatomic, strong) NSArray *countryMoneySupply;
 @property (nonatomic, strong) NSArray *countryName;
 @property (nonatomic, strong) NSArray *delegate;

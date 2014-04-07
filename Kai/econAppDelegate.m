@@ -12,6 +12,7 @@
 #import "RealGDPData.h"
 #import "M1Data.h"
 #import "M2Data.h"
+#import "nominalInterestRate.h"
 
 @interface econAppDelegate()
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
@@ -30,21 +31,17 @@
 {
         
     NSData* countryData = [NSData dataWithContentsOfURL:
-                           [NSURL URLWithString:@"http://api.worldbank.org/country?per_page=256&format=json"]
-                           ];
+                           [NSURL URLWithString:@"http://api.worldbank.org/country?per_page=256&format=json"]];
     NSData* nominalGDPData = [NSData dataWithContentsOfURL:
-                              [NSURL URLWithString:@"http://api.worldbank.org/countries/ALL/indicators/NY.GDP.MKTP.CN?format=json&date=2012&per_page=252"]
-                              ];
+                              [NSURL URLWithString:@"http://api.worldbank.org/countries/ALL/indicators/NY.GDP.MKTP.CN?format=json&date=2012&per_page=252"]];
     NSData* realGDPData = [NSData dataWithContentsOfURL:
-                           [NSURL URLWithString:@"http://api.worldbank.org/countries/ALL/indicators/NY.GDP.MKTP.KN?format=json&date=2012&per_page=252"]
-                           ];
+                           [NSURL URLWithString:@"http://api.worldbank.org/countries/ALL/indicators/NY.GDP.MKTP.KN?format=json&date=2012&per_page=252"]];
     NSData* m1Data = [NSData dataWithContentsOfURL:
-                      [NSURL URLWithString:@"http://api.worldbank.org/countries/ALL/indicators/FM.LBL.MONY.CN?format=json&date=2012&per_page=252"]
-                      ];
+                      [NSURL URLWithString:@"http://api.worldbank.org/countries/ALL/indicators/FM.LBL.MONY.CN?format=json&date=2012&per_page=252"]];
     NSData* m2Data = [NSData dataWithContentsOfURL:
-                      [NSURL URLWithString:@"http://api.worldbank.org/countries/ALL/indicators/FM.LBL.MQMY.CN?format=json&date=2012&per_page=252"]
-                      ];
-    
+                      [NSURL URLWithString:@"http://api.worldbank.org/countries/ALL/indicators/FM.LBL.MQMY.CN?format=json&date=2012&per_page=252"]];
+    NSData* nominalInterestRateData = [NSData dataWithContentsOfURL:
+                                       [NSURL URLWithString:@"http://api.worldbank.org/countries/ALL/indicators/FR.INR.LEND?format=json&date=2012&per_page=252"]];
     
     NSMutableArray* countryJson = nil;
     if (countryData) {
@@ -85,9 +82,19 @@
                   options:kNilOptions
                   error:nil];
     }
+
     
+    NSArray* nominalInterestRateJson = nil;
+    if (nominalInterestRateData) {
+        nominalInterestRateJson = [NSJSONSerialization
+                  JSONObjectWithData:nominalInterestRateData
+                  options:kNilOptions
+                  error:nil];
+    }
+
     for (NSDictionary* country in countryJson[1]) {
         NSString* nominalGDPValue;
+        NSString* nominalInterestRateValue;
         NSString* realGDPValue;
         NSString* m1Value;
         NSString* m2Value;
@@ -95,6 +102,7 @@
         NSString* realGDPYear;
         NSString* m1Year;
         NSString* m2Year;
+        NSString* nominalInterestRateYear;
         
         NSString *countryKey = [country objectForKey:@"iso2Code"];
         NSString *countryName = [country objectForKey:@"name"];
@@ -109,8 +117,8 @@
             }
         }
         
-        if (nominalGDPValue == nil || [nominalGDPValue isEqual:[NSNull null]] || [nominalGDPValue isKindOfClass:[NSNull class]]) {
-            nominalGDPValue=[NSString stringWithFormat:@"%d", 0];
+        if (nominalGDPValue==nil || [nominalGDPValue isEqual:[NSNull null]] || [nominalGDPValue isKindOfClass:[NSNull class]]) {
+            nominalGDPValue=@"delete";
         }
         
         //real GDP
@@ -122,8 +130,8 @@
             }
         }
         
-        if (realGDPValue == nil || [realGDPValue isEqual:[NSNull null]] || [realGDPValue isKindOfClass:[NSNull class]]) {
-            realGDPValue=[NSString stringWithFormat:@"%d", 0];
+        if (realGDPValue==nil || [realGDPValue isEqual:[NSNull null]] || [realGDPValue isKindOfClass:[NSNull class]]) {
+            realGDPValue=@"delete";
         }
         
         //m1
@@ -135,8 +143,8 @@
             }
         }
         
-        if (m1Value == nil || [m1Value isEqual:[NSNull null]] || [m1Value isKindOfClass:[NSNull class]]) {
-            m1Value=[NSString stringWithFormat:@"%d", 0];
+        if (m1Value==nil || [m1Value isEqual:[NSNull null]] || [m1Value isKindOfClass:[NSNull class]]) {
+            m1Value=@"delete";
         }
         
         //m2
@@ -148,19 +156,31 @@
             }
         }
         
-        if ([m2Value isEqual:[NSNull null]] || [m2Value isKindOfClass:[NSNull class]]) {
-            m2Value=[NSString stringWithFormat:@"%d", 0];
+        if (m2Value==nil || [m2Value isEqual:[NSNull null]] || [m2Value isKindOfClass:[NSNull class]]) {
+            m2Value=@"delete";
+        }
+        
+        //nominal interest rate
+        for (NSDictionary* nominterrateCapsul in ((NSArray *)nominalInterestRateJson[1])) {
+            NSDictionary* countryIdentificationDictionary=[[NSDictionary alloc] initWithDictionary:[nominterrateCapsul objectForKey:@"country"]];
+            if ([[countryIdentificationDictionary objectForKey:@"id"] isEqualToString:countryKey]) {
+                nominalInterestRateValue=[nominterrateCapsul objectForKey:@"value"];
+                nominalInterestRateYear=[nominterrateCapsul objectForKey:@"date"];
+            }
+        }
+        
+        if (nominalInterestRateValue==nil || [nominalInterestRateValue isEqual:[NSNull null]] || [nominalInterestRateValue isKindOfClass:[NSNull class]]) {
+            m2Value=@"delete";
         }
         
         
         
-        
-        
         if (
-            ![realGDPValue isEqualToString:@"0"] &&
-            ![nominalGDPValue isEqualToString:@"0"] &&
-            ![m1Value isEqualToString:@"0"] &&
-            ![m2Value isEqualToString:@"0"]
+            ![realGDPValue isEqualToString:@"delete"] &&
+            ![nominalGDPValue isEqualToString:@"delete"] &&
+            ![m1Value isEqualToString:@"delete"] &&
+            ![m2Value isEqualToString:@"delete"] &&
+            ![nominalInterestRateValue isEqualToString:@"delete"]
             )
         {
             econAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
@@ -204,6 +224,13 @@
             dateStr=[dateStr stringByAppendingString:[yearValue stringValue]];
             m2Info.currentYear=[editDate dateFromString:dateStr];
 
+            NominalInterestRate *nominalInterestInfo = [NSEntityDescription insertNewObjectForEntityForName:@"NominalInterestRate" inManagedObjectContext:managedObjectContext];
+            nominalInterestInfo.current = [NSNumber numberWithLongLong:[nominalInterestRateValue longLongValue]];
+            yearValue = [NSNumber numberWithInt:[nominalInterestRateYear intValue]];
+            dateStr=[dateStr stringByAppendingString:[yearValue stringValue]];
+            nominalInterestInfo.currentYear=[editDate dateFromString:dateStr];
+
+            
             
             
             
@@ -211,10 +238,12 @@
             m1Info.countryForM1=countryNameInfo;
             realGDPInfo.countryForRealGDP=countryNameInfo;
             NominalGDPInfo.countryForNominalGDP=countryNameInfo;
+            nominalInterestInfo.countryForNominalInterest=countryNameInfo;
             countryNameInfo.countryM1=m1Info;
             countryNameInfo.countryM2=m2Info;
             countryNameInfo.countryNominalGDP=NominalGDPInfo;
             countryNameInfo.countryRealGDP=realGDPInfo;
+            countryNameInfo.countryNominalInterest=nominalInterestInfo;
         }
     }
     return YES;

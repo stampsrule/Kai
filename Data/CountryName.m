@@ -2,7 +2,7 @@
 //  CountryName.m
 //  Kai
 //
-//  Created by Daniel Bell on 2014-03-26.
+//  Created by Daniel Bell on 2014-04-06.
 //  Copyright (c) 2014 Daniel Bell. All rights reserved.
 //
 
@@ -10,6 +10,7 @@
 #import "M1Data.h"
 #import "M2Data.h"
 #import "NominalGDPData.h"
+#import "NominalInterestRate.h"
 #import "RealGDPData.h"
 
 
@@ -23,5 +24,6 @@
 @dynamic countryM2;
 @dynamic countryNominalGDP;
 @dynamic countryRealGDP;
+@dynamic countryNominalInterest;
 
 @end

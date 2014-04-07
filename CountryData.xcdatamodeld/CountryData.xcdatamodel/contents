@@ -8,6 +8,7 @@
         <relationship name="countryM1" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="M1Data" inverseName="countryForM1" inverseEntity="M1Data" syncable="YES"/>
         <relationship name="countryM2" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="M2Data" inverseName="countryForM2" inverseEntity="M2Data" syncable="YES"/>
         <relationship name="countryNominalGDP" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NominalGDPData" inverseName="countryForNominalGDP" inverseEntity="NominalGDPData" syncable="YES"/>
+        <relationship name="countryNominalInterest" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NominalInterestRate" inverseName="countryForNominalInterest" inverseEntity="NominalInterestRate" syncable="YES"/>
         <relationship name="countryRealGDP" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RealGDPData" inverseName="countryForRealGDP" inverseEntity="RealGDPData" syncable="YES"/>
     </entity>
     <entity name="M1Data" representedClassName="M1" syncable="YES">
@@ -31,6 +32,11 @@
         <attribute name="previousYear" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="countryForNominalGDP" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CountryName" inverseName="countryNominalGDP" inverseEntity="CountryName" syncable="YES"/>
     </entity>
+    <entity name="NominalInterestRate" representedClassName="NominalInterestRate" syncable="YES">
+        <attribute name="current" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="currentYear" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="countryForNominalInterest" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CountryName" inverseName="countryNominalInterest" inverseEntity="CountryName" syncable="YES"/>
+    </entity>
     <entity name="RealGDPData" representedClassName="RealGDP" syncable="YES">
         <attribute name="current" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="currentYear" optional="YES" attributeType="Date" syncable="YES"/>
@@ -39,7 +45,8 @@
         <relationship name="countryForRealGDP" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CountryName" inverseName="countryRealGDP" inverseEntity="CountryName" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CountryName" positionX="-432" positionY="14" width="128" height="163"/>
+        <element name="CountryName" positionX="-612" positionY="32" width="128" height="178"/>
+        <element name="NominalInterestRate" positionX="-470" positionY="-100" width="128" height="88"/>
         <element name="M1Data" positionX="-83" positionY="72" width="128" height="118"/>
         <element name="M2Data" positionX="-90" positionY="203" width="128" height="118"/>
         <element name="NominalGDPData" positionX="-83" positionY="-55" width="128" height="118"/>

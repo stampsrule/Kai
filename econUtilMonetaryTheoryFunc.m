@@ -46,18 +46,10 @@
 
     //R=1.978+0.018GNP - 0.033M
     //  lnR=1.320+2.092lnGNP - 1.59lnM
-    NSLog(@"nominalincome:%f", nominalIncome);
     moneyDemand=1.59*log(moneyDemand);
-    //NSLog(@"moneydemand: %f", moneyDemand);
-    
     GNP=2.092*log(nominalIncome);
-    NSLog(@"GND:%f", GNP);
-    
     nominalInterestRate=1.320+GNP-moneyDemand;
-    NSLog(@"nominalinterestrate: %f", nominalInterestRate);
-    
     nominalInterestRate=exp(nominalInterestRate);
-    NSLog(@"nominalinterestrate: %f", nominalInterestRate);
 
     return nominalInterestRate;
 }

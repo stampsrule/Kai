@@ -8,11 +8,11 @@
 
 #import "econCountryViewController.h"
 #import "econAppDelegate.h"
-#import "CountryName.h"
-#import "NominalGDPData.h"
-#import "M1Data.h"
-#import "RealGDPData.h"
-#import "M2Data.h"
+//#import "CountryName.h"
+//#import "NominalGDPData.h"
+//#import "M1Data.h"
+//#import "RealGDPData.h"
+//#import "M2Data.h"
 
 @interface econCountryViewController ()
 @property (weak, nonatomic) NSString* segueName;
@@ -29,6 +29,7 @@
 @synthesize strPassedRealIncomeValue;
 @synthesize strPassedNominalIncomeValue;
 @synthesize strPassedMoneySupplyValue;
+@synthesize strPassedNominalInterestValue;
 
 @synthesize delegate;
 
@@ -65,7 +66,7 @@
     }
     if (![moneySupply.text isEqualToString: @""] && ![Income.text isEqualToString: @""]) {
         [delegate dismissPopCountry: countryName.text
-                        moneySupply:[NSNumber numberWithDouble:[strPassedMoneySupplyValue doubleValue]] realincome:[NSNumber numberWithDouble:[strPassedRealIncomeValue doubleValue]] nominalIncome:[NSNumber numberWithDouble:[strPassedNominalIncomeValue doubleValue]]];
+                        moneySupply:[NSNumber numberWithDouble:[strPassedMoneySupplyValue doubleValue]] realincome:[NSNumber numberWithDouble:[strPassedRealIncomeValue doubleValue]] nominalIncome:[NSNumber numberWithDouble:[strPassedNominalIncomeValue doubleValue]] nominalInterest:[NSNumber numberWithDouble:[strPassedNominalInterestValue doubleValue]]];
         
     }
     

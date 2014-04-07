@@ -21,6 +21,7 @@
 @property (strong, nonatomic) NSString *strPassedMoneySupplyValue;
 @property (strong, nonatomic) NSString *strPassedRealIncomeValue;
 @property (strong, nonatomic) NSString *strPassedNominalIncomeValue;
+@property (strong, nonatomic) NSString *strPassedNominalInterestValue;
 
 
 - (IBAction)SaveCountryData:(UIButton *)sender;
@@ -34,6 +35,6 @@
 - (void)dismissPopCountry: (NSString *)Country
               moneySupply: (NSNumber *) moneySupply
                realincome: (NSNumber *) realIncome
-            nominalIncome: (NSNumber *) nominalIncome;
-
+            nominalIncome: (NSNumber *) nominalIncome
+          nominalInterest: (NSNumber *) nominalInterest;
 @end

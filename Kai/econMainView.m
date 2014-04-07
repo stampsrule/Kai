@@ -7,7 +7,7 @@
 //
 
 #import "econMainView.h"
-#import "econViewController.h"
+//#import "econViewController.h"
 @implementation econMainView
 
 - (id)initWithFrame:(CGRect)frame
@@ -24,18 +24,24 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    econViewController *mycontroller;
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetLineWidth(context, 2.0);
+    CGContextSetLineWidth(context, 0.5);
     CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
-    CGFloat components[] = {0.0, 0.0, 1.0, 1.0};
+    CGFloat components[] = {0.0, 0.0, 0.0, 1.0};
     CGColorRef color = CGColorCreate(colorspace, components);
     CGContextSetStrokeColorWithColor(context, color);
-    CGContextMoveToPoint(context, 30, 30);
-    CGContextAddLineToPoint(context, 300, 400);
+    CGContextMoveToPoint(context, 0, 106);
+    CGContextAddLineToPoint(context, 1080, 106);
+    CGContextStrokePath(context);
+    
+    CGContextSetLineWidth(context, 0.5);
+    CGContextSetStrokeColorWithColor(context, color);
+    CGContextMoveToPoint(context, 245, 106);
+    CGContextAddLineToPoint(context, 245, 780);
     CGContextStrokePath(context);
     CGColorSpaceRelease(colorspace);
     CGColorRelease(color);
+
 }
 
 

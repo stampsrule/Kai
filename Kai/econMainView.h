@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface econMainView : UIView
+@property (weak, nonatomic) IBOutlet UIButton *HomeCountryButton;
 
 @end

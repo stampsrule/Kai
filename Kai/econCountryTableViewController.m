@@ -15,6 +15,7 @@
 #import "M1Data.h"
 #import "M2Data.h"
 #import "RealGDPData.h"
+#import "NominalInterestRate.h"
 @interface econCountryTableViewController ()
 
 @property (nonatomic,strong)NSArray* fetchedCountriesArray;
@@ -107,6 +108,7 @@
     M2Data* m2object= (M2Data *)countryRecord.countryM2;
     RealGDPData* realGDPObject= (RealGDPData*)countryRecord.countryRealGDP;
     NominalGDPData* nominalGDPObject= (NominalGDPData*)countryRecord.countryNominalGDP;
+    NominalInterestRate* nominalInterestObject= (NominalInterestRate*)countryRecord.countryNominalInterest;
     
     if ([segue.identifier isEqualToString:@"Save Selected Country"]) {
         if ([segue.destinationViewController isKindOfClass:[econCountryViewController class]]) {
@@ -115,6 +117,7 @@
             ecvc.strPassedMoneySupplyValue=[[NSNumber numberWithDouble:[m2object.current doubleValue]/1000000000] stringValue];
             ecvc.strPassedNominalIncomeValue=[[NSNumber numberWithDouble:[nominalGDPObject.current doubleValue]/1000000000]stringValue];
             ecvc.strPassedRealIncomeValue=[[NSNumber numberWithDouble:[realGDPObject.current doubleValue]/1000000000]stringValue];
+            ecvc.strPassedNominalInterestValue=[[NSNumber numberWithDouble:[nominalInterestObject.current doubleValue]]stringValue];
             ecvc.delegate=self.delegate[0];
         }
     }

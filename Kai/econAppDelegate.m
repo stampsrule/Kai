@@ -178,7 +178,7 @@
         if (
             ![realGDPValue isEqualToString:@"delete"] &&
             ![nominalGDPValue isEqualToString:@"delete"] &&
-            ![m1Value isEqualToString:@"delete"] &&
+            //![m1Value isEqualToString:@"delete"] &&
             ![m2Value isEqualToString:@"delete"] &&
             ![nominalInterestRateValue isEqualToString:@"delete"]
             )

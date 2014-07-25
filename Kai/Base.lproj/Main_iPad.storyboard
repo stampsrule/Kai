@@ -188,7 +188,7 @@
                                 <rect key="frame" x="649" y="142" width="54" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Money supply"/>
+                                <state key="normal" title="Money Supply"/>
                                 <connections>
                                     <action selector="resetForeighnMoneySupply:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Aoo-fG-zWH"/>
                                 </connections>
@@ -215,7 +215,7 @@
                                 <rect key="frame" x="251" y="486" width="54" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Money supply"/>
+                                <state key="normal" title="Money Supply"/>
                                 <connections>
                                     <action selector="resetFutureMoneySupply:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vEu-Ih-9RZ"/>
                                 </connections>
@@ -242,7 +242,7 @@
                                 <rect key="frame" x="649" y="486" width="54" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Money supply"/>
+                                <state key="normal" title="Money Supply"/>
                                 <connections>
                                     <action selector="resetFutureForeighnMoneySupply:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0wB-mY-Rfx"/>
                                 </connections>
